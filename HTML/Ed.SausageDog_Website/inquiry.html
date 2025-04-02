@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>お問い合わせ ❘ DACHSHUND</title>
+    <link rel="stylesheet" href="css/styleED.css">
+</head>
+<body id="top">
+<header class="header">
+    <div class="logo"><img src="images/logodog-removebg.png" alt="DACHSHUND"></div>
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="index.html">詳細</a></li>
+            <li><a href="personality.html">性格</a></li>
+            <li><a href="care.html">お世話の方法</a></li>
+            <li><a href="kinds.html">種類</a></li>
+            <li><a href="inquiry.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+</header>
+<h1 class="inu contact">お問い合わせ</h1>
+<main>
+    <h2>ダックスフンドについての考えや疑問を共有しよう！</h2>
+    <form action="result.html" method="get">
+        <p>
+            <label for="subject">お名前</label><br>
+            <input type="text" name="subject" placeholder="お名前を入力してください" id="subject">
+        </p>
+        <p>
+            <label for="subject">メールアドレス</label><br>
+            <input type="text" name="subject" placeholder="メールアドレスを入力してください" id="subject">
+        </p>
+        <p>
+            <label for="kind">ダックスフンドのサイズ</label><br>
+            <select name="kind" id="kind">
+                <option value="1">スタンダード</option>
+                <option value="2">ミニチュア</option>
+                <option value="3">知りません</option>
+            </select>
+        </p>
+        <p>
+            <label for="kind">被毛の種類</label><br>
+            <select name="kind" id="kind">
+                <option value="1">スムースコート（短毛）</option>
+                <option value="2">ロングヘアード（長毛）</option>
+                <option value="3">ワイヤーヘアード（剛毛）</option>
+                <option value="4">知りません</option>
+            </select>
+        </p>
+        <p>
+            <label for="kind">毛色によるバリエーション</label><br>
+            <select name="kind" id="kind">
+                <option value="1">ブラック＆クリーム</option>
+                <option value="2">ブラック＆タン</option>
+                <option value="3">ブルー＆クリーム</option>
+                <option value="4">ブルー＆タン</option>
+                <option value="5">チョコレート＆クリーム</option>
+                <option value="6">チョコレート＆タン</option>
+                <option value="7">クリーム</option>
+                <option value="8">フォーン＆クリーム</option>
+                <option value="9">フォーン＆タン</option>
+                <option value="10">赤</option>
+                <option value="11">ウィートン</option>
+                <option value="12">ワイルドボー</option>
+                <option value="13">知りません</option>
+            </select>
+        </p>
+        <p>
+            性別？<br>
+            <label><input type="radio" name="first" value="male">雄</label><br>
+            <label><input type="radio" name="first" value="female">雌</label>
+        </p>
+        <p>
+            Dachshund Webサイトをお知りになったきっかけは？<br>
+            <label><input type="checkbox" name="how" value="SNS">SNS</label><br>
+            <label><input type="checkbox" name="how" value="google">Google</label><br>
+            <label><input type="checkbox" name="how" value="vet">獣医</label><br>
+            <label><input type="checkbox" name="how" value="friend">知り合いの紹介で</label><br>
+            <label><input type="checkbox" name="how" value="other">他</label><br>
+        </p>
+        <p>
+            <label for="subject">お問い合わせの件名</label><br>
+            <input type="text" name="subject" placeholder="タイトル" id="subject">
+        </p>
+        <p>
+            <label for="message">お問い合わせ内容</label><br>
+            <textarea name="message" cols="30" rows="8" id="message"></textarea>
+        </p>
+        <p class="submit">
+            <input type="submit" value="送信">
+        </p>
+    </form>    
+</main>
+
+<footer>
+    <div class="gotop">
+        <a href="#top"><img src="images/back-to-top.png" alt="ページトップへ戻る">トップ</a>
+        <p class="copyright">&copy; De Sa Monsores Edgard <br> it24083030@tsb-yyg.ac.jp</p>
+</footer>
+</body>
+</html>
