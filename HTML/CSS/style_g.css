@@ -1,0 +1,132 @@
+/* すべてのページに適用される設定 */
+html {
+    font-size: 16px;
+    font-family: sans-serif; /*ゴシック系*/
+    /*color: red;*/  
+}
+*{
+    box-sizing: boder-box;
+}
+body{
+    margin: 0 0 0 0;
+}
+p,li,td{
+    line-height: 1.7;
+}
+a:link{
+    color: #F07D34;
+    text-decoration: none;
+}
+a:visited{
+    color: #F07D34;
+    text-decoration: none;
+}
+a:hover{
+    color: darkgreen;
+    text-decoration: underline;
+}
+a:active{
+    color: #F07D34;
+    text-decoration: underline;
+}
+img{
+    max-width: 100%;
+}
+/* すべてのページに適用 - ヘッダー */
+.header{
+    padding-top: 40px;
+    background-image: url(../images/stripe.png);
+    background-repeat: repeat-x;
+}
+.logo {
+    text-align: center;
+}
+.nav ul{
+    margin: 30px 0 0 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.nav a:link{
+    color: #253958;
+}
+.nav a:visited{
+    color: #253958;
+}
+.nav a:hover{
+    text-decoration: none;
+}
+.nav a:active{
+    text-decoration: none;
+}
+/* すべてのページに適用 - ヒーロー */
+.hero{
+    padding: 137px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: green;
+    text-align: center;
+}
+.hero.index{
+    padding: 287px 0;
+    background-image: url(../images/main.jpg);
+}
+.hero.it{
+    padding: 287px 0;
+    background-image: url(../images/main.jpg);
+}
+.hero.ai{
+    padding: 287px 0;
+    background-image: url(../images/main.jpg);
+}
+.hero.name{
+    padding: 287px 0;
+    background-image: url(../images/main.jpg);
+}
+/* すべてのページに適用 - メイン */
+main{
+    margin: 90px auto 90px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+/* すべてのページに適用 - フッター */
+.gotop {
+    text-align: center;
+}
+.copyright {
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    background-color: #253958;
+    color: #ffffff;
+    text-align: center;
+}
+/* 特別のスタイル */
+/* index.html */
+
+/*モバイル対応*/
+@media(max-width: 767px){
+    main{
+        padding: 0 4%;
+    
+    }
+    /*index.html*/
+    .hero.index{
+        padding: 28vh 0;
+    }
+    .hero.it{
+        padding: 28vh 0;
+    }
+    .hero.ai{
+        padding: 28vh 0;
+    }
+    .hero.name{
+        padding: 28vh 0;
+    }
+    /*menu.html*/
+}
