@@ -1,0 +1,183 @@
+html {
+    font-size: 16px;
+    font-family: sans-serif;
+    background-color:aliceblue;
+}
+*{
+    box-sizing: boder-box;
+}
+body{
+    margin: 0 0 0 0;
+}
+p,li,td{
+    line-height: 1.7;
+}
+a:link{
+    color: #f03434;
+    text-decoration: none;
+}
+a:visited{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    color: blue;
+    text-decoration: underline;
+}
+a:active{
+    color: #f03434;
+    text-decoration: underline;
+}
+img{
+    max-width: 100%;
+}
+.header{
+    padding-top: 40px;
+    background-image: url(../images/dog-paw-removebg.png);
+    background-repeat: repeat-x;
+}
+.logo {
+    text-align: center;
+}
+.nav ul{
+    margin: 30px 0 0 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+.nav a:link{
+    color: #000000;
+}
+.nav a:visited{
+    color: #000000;
+}
+.nav a:hover{
+    text-decoration: underline;
+}
+.nav a:active{
+    color: #f03434;
+    text-decoration: overline;
+}
+.inu{
+    padding: 137px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    text-align: center;
+}
+.inu.index{
+    padding: 420px 0;
+    background-image: url(../images/dachshubdmain.jpg);
+}
+.inu.personality{
+    padding: 200px 0;
+    background-image: url(../images/dogpersonality.jpg);
+}
+.inu.health{
+    padding: 200px 0;
+    background-image: url(../images/doggg.jpg);
+}
+.inu.kinds{
+    padding: 200px 0;
+    background-image: url(../images/dogpuppies.jpg);
+}
+.inu.contact{
+    padding: 200px 0;
+    background-image: url(../images/dog-contact.png);
+}
+
+main{
+    margin: 90px auto 90px auto;
+    max-width: 1000px;
+}
+main h2{
+    margin: 60px 0 20px 0;
+    border-bottom: 2px solid #000000;
+    padding: 0 0 5px 0;
+    color: #000000;
+    font-size: 1.3rem;
+}
+.gotop {
+    text-align: center;
+}
+.copyright {
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+}
+.care{
+    text-align: center; 
+}
+.dog {
+    text-align: center;
+}
+.imagem {
+    float: right;
+    margin-left: 20px;
+    max-width: 400px;
+}
+.detail{
+    border-collapse: collapse;
+    text-align: right;
+}
+.detail th,.detail td{
+    border: 1px solid #000000;
+    padding: 20px;
+}
+.detail th{
+    width: 112px;
+    text-align: center;
+    vertical-align: top;
+}
+.items{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+form{
+    margin: 0 auto;
+    max-width: 640px;
+}
+input[type="text"],textarea{
+    padding: 6px;
+    width: 100%;
+    font-size: 1rem;
+}
+textarea{
+    height: 140px;
+}
+.submit{
+    text-align: center;
+}
+input[type="submit"]{
+    border: none;
+    padding: 20px;
+    width: 200px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+@media(max-width: 767px){
+    .nav ul{
+        flex-wrap:wrap;
+        gap: 20px;
+    }
+    main{
+        padding: 0 4%;
+    
+    }
+    .inu.index{
+        padding: 28vh 0;
+    }
+    .items{
+        grid-template-columns: 1fr 1fr;
+    }
+}
