@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>フレックスボックスの活用</title>
+    <style>
+        .f-container{
+            display: flex;
+            width: 300px;
+            flex-wrap: wrap;
+            background-color: #cccccc;
+        }
+        .f-item{
+            width: 60px;
+            background-color: #007733;
+            border: outset 6px #007733;
+            margin: 5px;
+            padding: 5px;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>会場一覧</h1>
+    <div class="f-container">
+        <p class="f-item">札幌</p>
+        <p class="f-item">仙台</p>
+        <p class="f-item">東京</p>
+        <p class="f-item">名古屋</p>
+        <p class="f-item">大阪</p>
+    </div>
+</body>
+</html>

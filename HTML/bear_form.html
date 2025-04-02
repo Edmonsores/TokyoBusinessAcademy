@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Teddy Bear</title>
+</head>
+<style>
+div{
+    width: 800px; 
+    margin: 30px auto 30px auto;
+    padding: 20px;
+    border: 5px double green;
+}
+h1{
+    text-align: center;
+}
+label{
+    color: blue;
+}
+input{
+    color: red;
+    margin: 10px;
+}
+input[type="text"]{
+    border: 2px solid green;
+}
+textarea{
+    background-color: aquamarine;
+}
+</style>
+<div>
+<body>
+    <h1>テディベアの特別販売の注文</h1>
+    <form>
+    <p>下記項目にもれなく記入してよろしければ【ご購入】ボタンを押してください。
+        やり直すときは【キャンセル】ボタンをクリックしてください。
+    </p>
+    <p>
+        【お名前」<br>
+        <label>お名前</label> <input type="text" name="subject" size="20" id="subject"><br>
+        <label>ご住所</label> <input type="text" name="subject" size="30" id="subject">
+    </p>
+    <p>
+       【お住まいの地域】<br>
+        <select name="kind" id="kind">
+            <option value="1">地域を選択してください</option>
+            <option value="2">関東・東北</option>
+            <option value="3">中部・北陸</option>
+            <option value="4">関西・北海道</option>
+            <option value="5">中国・四国・九州</option>
+        </select>
+    </p>
+    <p>
+        【ご注文数（3体まで）】テディベア<br>
+        <label><input type="radio" name="first" value="1">1体</label>
+        <label><input type="radio" name="first" value="2">2体</label>
+        <label><input type="radio" name="first" value="3">3体</label>
+    </p>
+    <p>
+        【オプション】<br>
+        <label><input type="checkbox" name="how" value="wrapping">プレゼント用包装（無料）</label>
+        <label><input type="checkbox" name="how" value="ribbon">プレゼント用リボン（無料）</label>
+    </p>
+    <p>
+        その他<br>
+        <textarea name="message" cols="30" rows="6" id="message"></textarea>
+    </p>
+    <p class="submit">
+        <input type="submit" value="ご購入">
+        <input type="reset" value="キャンセル">
+    </p>
+    </form>
+</body>
+</div>
+</html>

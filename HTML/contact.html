@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>お問い合わせ ❘ KUZIRA CAFE</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="top">
+<!--　ヘッダー　-->
+<header class="header">
+    <div class="logo"><img src="images/logo.svg" alt="KUZIRA CAFE"></div>
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="index.html">お知らせ</a></li>
+            <li><a href="index.html"> 店舗案内</a></li>
+            <li><a href="access.html">アクセス</a></li>
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+</header>
+<!--　ヘッダーここまで　-->
+<h1 class="hero contact">お問い合わせ</h1>
+<!--　メイン　-->
+<main>
+    <form action="result.html" method="get">
+        <p>
+            <label for="kind">お問い合わせの種類</label><br>
+            <select name="kind" id="kind">
+                <option value="1">ご予約</option>
+                <option value="2">イベントに関するお問い合わせ</option>
+                <option value="3">その他</option>
+            </select>
+        </p>
+        <p>
+            はじめてのご来店ですか？<br>
+            <label><input type="radio" name="first" value="yes" checked>はい</label><br>
+            <label><input type="radio" name="first" value="no">いいえ</label>
+        </p>
+        <p>
+            当カフェをお知りになったきっかけは？<br>
+            <label><input type="checkbox" name="how" value="friend">知り合いの紹介で</label><br>
+            <label><input type="checkbox" name="how" value="magzine">SNS, Webサイト、雑誌などを見て</label>
+        </p>
+        <p>
+            <label for="subject">お問い合わせの件名</label><br>
+            <input type="text" name="subject" placeholder="タイトル" id="subject">
+        </p>
+        <p>
+            <label for="message">お問い合わせの具体的な内容</label><br>
+            <textarea name="message" cols="30" rows="6" id="message"></textarea>
+        </p>
+        <p class="submit">
+            <input type="submit" value="送信">
+        </p>
+    </form>    
+</main>
+<!--　メインここまで　-->
+<!--　フッター　-->
+<footer>
+    <div class="gotop">
+        <a href="#top"><img src="images/gotop.svg" alt="ページトップへ戻る">戻る</a>
+    <p class="copyright">&copy; De Sa Monsores Edgard
+</footer>
+<!--　フッターここまで　-->
+
+
+</body>
+</html>

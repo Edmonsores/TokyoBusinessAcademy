@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>html5</title>    
+</head>
+<body>
+    <h3>１、フォーム</h3>
+    <form action="#" method="post">
+        メール<input type="email"><br>
+        パスワード<input type="password"><br>
+        URL<input type="url"><br>
+        <input type="submit" value="送信">
+    </form>
+    <br>
+    <h3>２、動画や音声データ</h3>
+        <audio controls="controls"
+                       autoplay preload="auto">
+        <source src="images/dog.mp3" type="audio/mpeg">
+        ブラウザ未対応のときここが表示
+        </audio>
+    <h3>６、address</h3>
+        <footer>
+            <address>
+                サイト全体の連絡先<a href="#">こちら</a>
+            </address>
+        </footer>
+    <h3>７、time</h3>
+        <p>公開日<time>2024-09-01</time></p>
+        <time datetime="2024-09-02">明日</time>開催されます
+    <h3>８、ルビ</h3>
+        <p><ruby>基礎知識<rt>きそちしき</rt></ruby></p>
+    <h3>９、display</h3>
+        <a href="#" style="display: block;">インラインのaをブロックレベル表示。改行される</a>
+        <h4 style="display: inline;">ブロックレベルのh4をインラインで表示。改行されない</h4>
+        この下は本当はあげるけどdisplay: noneだから表示されない
+        <p style="display: none;">表示されない</p>
+</body>
+</html>
