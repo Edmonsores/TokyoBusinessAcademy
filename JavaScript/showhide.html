@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>sample6</title>
+<style type="text/css">
+    div{
+        width: 300px;
+        height: 300px;
+        background: red;
+        display: none;
+    }
+</style>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+    $(function(){
+            $("button#show").click(function(){
+                $("div").show(3000);
+            });
+            $("button#hide").click(function(){
+                $("div").hide("slow");
+            });
+    });
+</script>
+</head>
+<body>
+    <button id="show">表示</button>
+    <button id="hide">非表示</button><div></div>
+</body>
+</html>

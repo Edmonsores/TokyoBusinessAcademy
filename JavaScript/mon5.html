@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>mon5</title>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+    $(function(){
+        var flag = false;
+        $('img')
+        .mousedown(function(){
+            flag=true;
+            return false;
+        })
+        .mouseup (function(){
+            flag=false;
+        })
+        .mousemove(function (e){
+            if (flag == true){
+                $(this).css({
+                    top: e.pageY -10,
+                    left: e.pageX -10
+                });
+            }
+        });
+    });
+</script>
+</head>
+<body>
+    <p>画像をドラック＆ドラップ</p>
+    <div><img src="images/kuma1.gif" style="position:absolute;"></div>
+</body>
+</html>

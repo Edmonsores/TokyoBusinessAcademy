@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>属性</title>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+    $(function(){
+        $('.over')
+        .mouseover(function(){
+            $(this).attr('src','images/kuma2.gif');
+        })
+        $('.over')
+        .mouseout(function(){
+            $(this).attr('src','images/kuma1.gif');
+        })
+    });
+</script>
+</head>
+<body>
+    <p>ホームページはこちら
+        <img class="over" src="images/kuma1.gif" alt="">
+    </p>
+</body>
+</html>

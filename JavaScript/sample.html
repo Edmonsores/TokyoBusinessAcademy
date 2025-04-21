@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>CSS</title>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+    $(function(){
+        $('li').css({
+            color: 'red',
+            backgroundColor:'yellow'
+        });
+        alert("liの文字色は"+$('li').css('color')+"です");
+    });
+</script>
+</head>
+<body>
+    <ul>
+        <li>aeiuoaeou</li>
+        <li>aeiuoaeou</li>
+    </ul>
+</body>
+</html>

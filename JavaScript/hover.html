@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>属性</title>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+    $(function(){
+        $('img').hover(
+            function(){
+                $(this).attr('src','images/open_home.gif');
+            },
+            function(){
+                $(this).attr('src','images/home.gif');
+            }
+        );
+    });
+</script>
+</head>
+<body>
+    <p>ホームページはこちら
+        <img src="images/home.gif">
+    </p>
+</body>
+</html>

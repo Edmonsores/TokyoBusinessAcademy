@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>属性</title>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+    $(function(){
+        $('#img1').attr('height',30);
+        $('#img2').attr({
+            src: 'images/nature01.jpg',
+            alt:'風景',
+            width: '80',
+            height: '30',
+            title: '風景画像',
+        });
+        alert($('#img2').attr('title'))
+    });
+</script>
+</head>
+<body>
+    <p><img id="img1" src="images/nature02.jpg" alt=""></p>
+    <p><img id="img2"></p>
+</body>
+</html>

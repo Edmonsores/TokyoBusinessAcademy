@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jQueryを使ってみよう</title>
+    <!-- jQueryの読み込み -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- lightboxの読み込みと設定 -->
+    <script src="js/jquery.lightbox-0.5.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.lightbox-0.5.css">
+    <!-- lightboxの起動要素の設定 -->
+    <script>
+    $(function() {
+        $('#gallery a').lightBox();
+    });
+    </script>
+    <style type="text/css">
+     html { height: 100% } h1{font-size:36px}
+     body { width:100%;height:100%; margin: 0 auto;font-size:18px;}
+     h1 {font-size:32px;color:#ff0000;}
+     h2 {font-size:20px;color:#333333;}
+     header {width:800px; height:100px;background-color:#ffffaa;margin: 0 auto;padding: 8px;}
+     footer {width:800px; height: 40px;background-color:#ffffaa;margin: 0 auto;padding: 8px;}
+     #photo {width:800px; height:300px;background-color:#ccccff;margin: 0 auto;padding: 8px;}    
+     #gallery {
+	background-color: #666666;
+	padding: 10px;
+	width: 780px;
+     }
+     #gallery ul { list-style: none; }
+     #gallery ul li { display: inline; margin: 20px;}
+     #gallery ul img {
+	border: 5px solid #444444;
+	border-width: 5px 5px 20px;
+     }
+     #gallery ul a:hover img {
+	border: 5px solid #ffffaa;
+	border-width: 5px 5px 20px;
+	color: #ffffaa;
+     }
+     #gallery ul a:hover { color: #ffffaa; }
+    </style>
+</head>
+
+<body>
+   <header>
+    <h1>Gallery</h1>
+   </header>
+<div id=photo>
+<h2>自然の写真</h2>
+<p>写真</p>
+<div id="gallery">
+    <ul>
+        <li>
+           <a href="photos/nature01.jpg" title="自然の写真１">
+            <img src="photos/nature01.jpg" width="120" height="120"></a>
+        </li>
+        <li>
+            <a href="photos/nature02.jpg" title="自然の写真１">
+                <img src="photos/nature02.jpg" width="120" height="120"></a>
+        </li>
+        <li>
+            <a href="photos/nature03.jpg" title="自然の写真１">
+                <img src="photos/nature03.jpg" width="120" height="120"></a>
+        </li>
+        <li>
+            <a href="photos/nature04.jpg" title="自然の写真１">
+                <img src="photos/nature04.jpg" width="120" height="120"></a>
+        </li>
+    </ul>
+</div>
+</div>
+   <footer>
+     <p>このページは、jQueryとlightBoxプラグインを使用しています。</p>
+   </footer>
+</body>
+</html>

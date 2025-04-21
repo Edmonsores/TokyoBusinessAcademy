@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>mon4</title>
+<script src="js/jquery-3.7.1.min.js"></script>
+
+<script>
+        $(function(){
+ 
+          $("div").animate({
+            marginLeft: '+=500px'
+          }, 2000, "linear", function() {
+            $("body").css("background-color", "blue");
+            alert("移動しました");
+          });
+        });
+</script>
+</head>
+<body>
+    <div><img src="images/kuma1.gif"></div>
+</body>
+</html>
