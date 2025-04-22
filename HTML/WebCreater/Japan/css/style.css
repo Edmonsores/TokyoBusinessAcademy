@@ -1,0 +1,116 @@
+﻿@charset "utf-8";
+
+/* 基本レイアウト ここから↓ */
+@import url(common.css);
+body {
+	line-height: 150%;
+}
+header, nav, #topicpath, #contents, footer {
+	width: 840px;
+	margin-left: auto;
+	margin-right: auto;
+}
+nav {
+	margin-bottom: 15px;
+}
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding-left: 0;
+	overflow: hidden;
+}
+nav ul li {
+	width: 210px;
+	float: left;
+}
+nav ul li a {
+	display: block;
+	height: 0;
+	padding-top: 64px;
+}
+nav ul li#nav_introduction a {
+	background-image: url(../images/btn_navigation1.png);
+}
+nav ul li#nav_schedule a {
+	background-image: url(../images/btn_navigation2.png);
+}
+nav ul li#nav_gallery a {
+	background-image: url(../images/btn_navigation3.png);
+}
+nav ul li#nav_tickets a {
+	background-image: url(../images/btn_navigation4.png);
+}
+#main {
+	width: 610px;
+	margin-right: 30px;
+	float: left;
+}
+#sub {
+	width: 200px;
+	float: right;
+}
+#main h1 {
+	margin: 0 0 30px 0;
+	padding: 35px 20px 35px 20px;
+	background-image: url(../images/h1_top.png), url(../images/h1_bottom.png);
+	background-repeat: no-repeat, no-repeat;
+	background-position: center top, center bottom;
+	font-size: 175%;
+	text-align: center;
+}
+#introduction #nav_introduction a, #schedule #nav_schedule a, #gallery #nav_gallery a, #tickets #nav_tickets a, nav ul li a:hover {
+	background-position: 0 -64px;
+}
+/* 基本レイアウト ここまで↑ */
+
+/* トップページ ここから↓ */
+#topics ul {
+	list-style-type: none;
+	margin: 0;
+	padding-left: 0;
+}
+#topics ul li {
+	margin-top: 1.5em;
+	padding: 0 0 1.5em 9.3em;
+	border-bottom: 1px dotted #666666;
+	text-indent: -9.3em;
+}
+/* トップページ ここまで↑ */
+
+/* 「展覧会について」ページ ここから↓ */
+.sec_field {
+	margin-bottom: 30px;
+	overflow: hidden;
+}
+.sec_field:last-child {
+	margin-bottom: 0;
+}
+/* 「展覧会について」ページ ここまで↑ */
+
+/* 「スケジュール」ページ ここから↓ */
+table thead tr {
+	background-color: #333333;
+	color: #ffffff;
+}
+table tbody tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+/* 「スケジュール」ページ ここまで↑ */
+
+/* 「作品紹介」ページ ここから↓ */
+.pic_field figure {
+	width: 290px;
+	margin: 0 30px 0 0;
+	float: left;
+}
+.pic_field figure:last-child {
+	margin-right: 0;
+}
+/* 「作品紹介」ページ ここまで↑ */
+
+/* 「前売り券申し込み」ページ ここから↓ */
+input[required] {
+	width: 250px;
+	background-color: #ffcccc;
+}
+/* 「前売り券申し込み」ページ ここまで↑ */

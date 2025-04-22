@@ -1,0 +1,64 @@
+﻿@charset "utf-8";
+
+header, nav, #pickup_field, #contents, footer {
+	width: 100%;
+}
+header h1 img{
+	width: 100%;
+	max-width: 258px;
+}
+#pickup_field ul li img {
+	width: 100%;
+}
+#main, #topics h2, #topics ul li {
+	width: auto;
+	margin: 0;
+	float: none;
+}
+nav ul li#nav_introduction, nav ul li#nav_schedule, nav ul li#nav_gallery, nav ul li#nav_tickets {
+	width: 100%;
+}
+nav ul li#nav_introduction a, nav ul li#nav_schedule a, nav ul li#nav_gallery a, nav ul li#nav_tickets a {
+	height: auto;
+	margin: 1px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border: 1px solid #666666;
+	background: none;
+	font-size: 14px;
+	text-decoration: none;
+	text-align: center;
+
+}
+nav ul li#nav_introduction a:hover, nav ul li#nav_schedule a:hover, nav ul li#nav_gallery a:hover, nav ul li#nav_tickets a:hover {
+	background-color: #c62222;
+	color: #ffffff;
+}
+#main {
+	margin-bottom: 20px;
+	padding: 0;
+}
+#sub {
+	margin-left: 10px;
+	float: none;
+}
+footer #info_field {
+	height: auto;
+	padding: 10px;
+	background: none;
+	background-color: #f4f4f4;
+}
+footer address {
+	width: auto;
+}
+#topics ul li {
+	margin-top: 20px;
+	padding: 0 0 20px 0;
+	text-indent: 0;
+}
+#topics ul li time {
+	width: auto;
+	font-weight: normal;
+	display: block;
+	margin-bottom: 10px;
+}
