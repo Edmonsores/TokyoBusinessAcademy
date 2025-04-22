@@ -1,0 +1,126 @@
+﻿@charset "utf-8";
+
+/* 基本レイアウト ここから↓ */
+@import url(common.css);
+body{
+    background-image: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: #666666;
+}
+header, nav, #path, #contents, footer{
+    width: 860px;
+    margin: 0 auto 0 auto;
+}
+header h1{
+    margin: 0 0 26px 0;
+    padding-top: 18px;
+    text-align: center;
+}
+nav ul{
+    list-style-type: none;
+    margin: 0 0 20px 0;
+    padding-left: 0;
+    overflow: hidden;
+}
+nav ul li{
+    width: 215px;
+    float: left;
+}
+nav ul li a{
+    display: block;
+    height: 0;
+    padding-top: 60px;
+    overflow: hidden;
+}
+nav ul li#nav_about a{
+    background-image: url(../images/nav1.png);
+}
+nav ul li#nav_guide a{
+    background-image: url(../images/nav2.png);
+}
+nav ul li#nav_animals a{
+    background-image: url(../images/nav3.png);
+}
+nav ul li#nav_contact a{
+    background-image: url(../images/nav4.png);
+}
+#main{
+    width: 550px;
+    padding: 20px;
+    background-color: #ffffff;
+    float: left;
+}
+#sub{
+    width: 240px;
+    float: right;
+}
+footer{
+    padding: 10px;
+}
+#main h1{
+    margin-bottom: 30px;
+    padding: 0 40px 20px 10px;
+    background-image: url(../images/bg_h1_left.png), url(../images/bg_h1_bottom.gif);
+    background-repeat: no-repeat, repeat-x;
+    background-position: right top, left bottom;
+    font-size: 180%;
+}
+#about #nav_about a, #guide #nav_guide a, #animals #nav_animals a, #contact #nav_contact a, nav ul li a:hover{
+    background-position: 0 -60px;
+}
+/* 基本レイアウト ここまで↑ */
+
+/* トップページ ここから↓ */
+#news ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+#news ul li{
+    padding: 20px 0 20px 160px;
+    border-bottom: 1px dotted #fb484e;
+    text-indent: -160px;
+}
+
+/* トップページ ここまで↑ */
+
+/* 「動物園について」ページ ここから↓ */
+.about_area{
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+.about_area:last-child{
+    margin-bottom: 0;
+}
+/* 「動物園について」ページ ここまで↑ */
+
+/* 「ガイドのご案内」ページ ここから↓ */
+table thead tr th{
+    background-color: #ffdd63;
+}
+table tbody tr:nth-child(偶数のアルファベット値を設定) td{
+    background-color: #eef8fa;
+}
+/* 「ガイドのご案内」ページ ここまで↑ */
+
+/* 「人気の動物たち」ページ ここから↓ */
+.animals_area figure{
+    width: 265px;
+    margin: 0 0 15px 20px;
+    float: left;
+    overflow: hidden;
+}
+.animals_area figure:first-child{
+    margin-left: 0;
+}
+/* 「人気の動物たち」ページ ここまで↑ */
+
+/* 「お問い合わせ」ページ ここから↓ */
+input[type="text"]{
+    width: 200px
+}
+input[type="email"]{
+    width: 300px;
+}
+
+/* 「お問い合わせ」ページ ここまで↑ */
