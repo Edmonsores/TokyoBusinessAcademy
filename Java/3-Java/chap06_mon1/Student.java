@@ -6,16 +6,17 @@ public class Student {
 	String name;
 
 	Student(int id, String name){
+		System.out.println("StudentCardクラスのコンストラクタが呼び出されます");
 		this.id = id;
-		this.name =  name;
+		this.name = name;
 		Student.counter++;
-	}
 	
-	System.out.println"()
-	int getId() {
-		return id;	
 	}
-	String getName() {
-		return name;
-	}
+	 void printmethod() {
+	        System.out.println("StudentCard情報");
+	        System.out.println("番号: " + Student.counter);
+	        System.out.println("学籍番号: " + this.id);
+	        System.out.println("氏名: " + this.name);
+	    }
+
 }
