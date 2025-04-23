@@ -1,0 +1,97 @@
+﻿@charset "utf-8";
+
+/* 基本レイアウト ここから↓ */
+@import url(common.css);
+header {
+	width: 820px;
+	height: 70px;
+	margin: 20px auto 20px auto;
+	position: relative;
+}
+header h1 {
+	position: absolute;
+}
+nav {
+	position: absolute;
+	right: 0;
+}
+nav ul {
+	list-style-type: none;
+	overflow: hidden;
+}
+nav ul li {
+	float: left;
+}
+nav ul li a:hover{
+	opacity: 0.66;
+}
+footer p {
+	margin-bottom: 0;
+	padding: 14px 0 14px 0;
+	background-image: url(../images/footer_bg.png);
+	background-repeat: repeat-x;
+	text-align: center;
+}
+footer small {
+	font-size: 100%;
+}
+#main h1{
+	margin: 0 0 20px 0;
+	padding: 0 0 5px 40px;
+	border-bottom: 2px solid #0b3cc1;
+	background-image: url(../images/h1_icon.png);
+	background-repeat: no-repeat;
+	font-size: 157%;
+}
+/* 基本レイアウト ここまで↑ */
+
+/* 「コンセプト」ページ ここから↓ */
+.image_right{
+	margin-bottom: 20px;
+	margin-left: 20px;
+	float: right;
+}
+/* 「コンセプト」ページ ここまで↑ */
+
+/* 「航空券のご案内」ページ ここから↓ */
+table{
+	width: 578px;
+	margin-bottom: 20px;
+	border-collapse: collapse;
+}
+table caption{
+	text-align: left;
+}
+table th, table td{
+	width: 130px;
+	padding: 10px;
+	border: 1px solid #89a7f9;
+}
+table th{
+	background-color: #a3e3ff;
+}
+table .point{
+	width: 245px;
+}
+table .limit{
+	width: 140px;
+	text-align: center;
+}
+/* 「航空券のご案内」ページ ここまで↑ */
+
+/* 「お問い合わせ」ページ ここから↓ */
+form{
+	margin-top: 30px;
+}
+input.input_box, textarea{
+	border: 1px solid #89a7f9;
+}
+input.input_box{
+	width: 280px;
+}
+textarea{
+	width: 500px;
+	height: 150px;
+	overflow: scroll;
+}
+/* 「お問い合わせ」ページ ここまで↑ */
