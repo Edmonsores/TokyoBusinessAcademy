@@ -1,0 +1,285 @@
+/* student_mst から抽出します。
+条件：　学科NO(gakka_no)　が　１　または、２　または、３　または、４　または、５
+*/
+
+select*from student_mst sm
+where sm.gakka_no = 1
+or sm.gakka_no = 2
+or sm.gakka_no = 3
+or sm.gakka_no = 4
+or sm.gakka_no = 5
+
+/*IN*/
+select*from student_mst sm
+where sm.gakka_no in (1,2,3,4,5);
+
+
+select * from student_mst sm
+where sm.gakka_no in (
+    select gm.gakka_no from gakka_mst gm
+    where gm.gakka_kj like '%ペット%'
+    );
+
+
+/*Pattern 1*/
+insert into student_mst
+ select * from student_mst_base smb;
+
+
+/*Pattern 2*/
+insert into student_mst(
+student_no
+,student_kj
+,student_kn
+,student_cd
+,gakka_no
+,seibetu_ku
+,age_nb
+,test_su
+,delete_ku
+,insert_at
+,update_at
+)
+select
+ smb.student_no
+,smb.student_kj
+,smb.student_kn
+,smb.student_cd
+,smb.gakka_no
+,smb.seibetu_ku
+,smb.age_nb
+,smb.test_su
+,smb.delete_ku
+,smb.insert_at
+,smb.update_at
+ from student_mst_base smb;
+
+
+/**/
+insert into student_mst(
+student_no
+,student_kj
+,student_kn
+,student_cd
+,gakka_no
+,seibetu_ku
+,age_nb
+,test_su
+,delete_ku
+,insert_at
+,update_at
+)
+select
+ smb.student_no
+,smb.student_kj
+,smb.student_kn
+,smb.student_cd
+,5
+,smb.seibetu_ku
+,smb.age_nb
+,smb.test_su
+,'0'
+,now()
+,now()
+ from student_mst_base smb;
+
+
+/**/
+create table s24083030_gakka_mst_fk (
+ gakka_no int not null,
+ gakka_kj varchar(255) not null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  gakka_no
+ )
+);
+
+create table s24083030_student_mst_fk (
+ student_no int not null,
+ student_kj varchar(255) not null,
+ student_kn varchar(255) null,
+ student_cd varchar(20) null,
+ gakka_no int null,
+ seibetu_ku char(1) not null,
+ age_nb int null,
+ test_su int null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  student_no
+ ),
+ foreign key(gakka_no) references s24083030_gakka_mst_fk(gakka_no)
+);
+
+insert into s24083030_gakka_mst_fk(
+student_no
+,student_kj
+,student_kn
+,student_cd
+,gakka_no
+,seibetu_ku
+,age_nb
+,test_su
+,delete_ku
+,insert_at
+,update_at
+) values (
+1000
+,'井田 テスト'
+,'イダ テスト'
+,'21000000'
+,1
+,'0'
+,40
+,80
+,'0'
+,now()
+,now()
+);
+
+
+/*automatic numbering*/
+create table s24083030_student_mst_ai (
+ student_no int not null auto_increment,
+ student_kj varchar(255) not null,
+ student_kn varchar(255) null,
+ student_cd varchar(20) null,
+ gakka_no int null,
+ seibetu_ku char(1) not null,
+ age_nb int null,
+ test_su int null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  student_no
+ )
+);
+insert into s24083030_student_mst_ai(
+student_kj
+,student_kn
+,student_cd
+,gakka_no
+,seibetu_ku
+,age_nb
+,test_su
+,delete_ku
+,insert_at
+,update_at
+) values (
+'井田 テスト'
+,'イダ テスト'
+,'21000000'
+,1
+,'0'
+,40
+,80
+,'0'
+,now()
+,now()
+);
+
+delete from s24083030_student_mst_ai
+where student_no = 3;
+
+select* from s24083030_student_mst_ai;
+
+
+
+
+
+
+/*問１*/
+create table s24083030_gakka_mst_af (
+ gakka_no int not null,
+ gakka_kj varchar(255) not null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  gakka_no
+ );
+
+create table s24083030_student_mst_af (
+ student_no int not null auto_increment,
+ student_kj varchar(255) not null,
+ student_kn varchar(255) null,
+ student_cd varchar(20) null,
+ gakka_no int null,
+ seibetu_ku char(1) not null,
+ age_nb int null,
+ test_su int null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  student_no
+ ),
+ foreign key(gakka_no) references s24083030_gakka_mst_af(gakka_no)
+);
+
+
+
+/*問２*/
+insert into s24083030_gakka_mst_af
+ select * from gakka_mst_af gma;
+
+
+/*問３*/
+insert into s24083030_student_mst_af
+ select * from student_mst_af;
+ where gakka_no in (select gm.gakka_no from s24083030_gakka_mst_af gm);
+
+
+/*問４*/
+insert into s24083030_student_mst_af(
+student_kj
+,student_kn
+,student_cd
+,gakka_no
+,seibetu_ku
+,age_nb
+,test_su
+,delete_ku
+,insert_at
+,update_at
+) values (
+'井田 テスト'
+,'イダ テスト'
+,'21000000'
+,1
+,'0'
+,40
+,80
+,'0'
+,now()
+,now()
+);
+
+
+/*問５*/
+select
+ sm.gakka_no
+,gm.gakka_kj
+,avg(age_nb)
+ from s24083030_student_mst_af
+ inner join s24083030_gakka_mst_af gm
+ on sm.gakka_no = gm.gakka_no;
+ and sm.delete_ku = '0'
+ and gm.delete_ku = '0'
+ GROUP BY sm.gakka_no
+ ,gm.gakka_kj;
+
+
+/*問６*/
+drop table s24083030_student_mst_af;
+drop table s24083030_gakka_mst_af;
+

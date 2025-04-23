@@ -1,0 +1,145 @@
+/*
+count
+*/
+SELECT
+count(sm.student_no)
+FROM student_mst sm;
+
+/*
+max function (関数)
+*/
+SELECT
+max(sm.student_no)
+FROM student_mst sm;
+
+/*
+min function (関数)
+*/
+SELECT
+min(sm.student_no)
+FROM student_mst sm;
+
+/*
+avg function (関数)
+*/
+SELECT
+avg(sm.student_no)
+FROM student_mst sm;
+
+/*
+sum function (関数)
+*/
+SELECT
+sum(sm.student_no)
+FROM student_mst sm;
+
+
+select avg(sm.test_su) from student_mst sm
+ where sm.gakka_no >= 2
+ and sm.gakka_no < 10;
+
+/*
+ Aggregation unit
+*/
+select 
+avg(sm.test_su) 
+from student_mst sm
+group BY sm.gakka_no;
+
+select
+ sm.gakka_no
+,sm.seibetu_ku
+,avg(sm.test_su)
+ from student_mst sm
+ group by sm.gakka_no
+,sm.seibetu_ku;
+
+select 
+ sm.gakka_no
+,avg(sm.test_su) 
+ from student_mst sm
+ where sm.gakka_no >= 2
+ and sm.gakka_no < 10
+ group BY sm.gakka_no
+ ORDER BY sm.gakka_no desc;
+
+/*
+having conditions
+*/
+select 
+ sm.gakka_no
+,avg(sm.test_su) 
+ from student_mst sm
+ where sm.gakka_no >= 2
+ and sm.gakka_no < 10
+ group BY sm.gakka_no
+ having avg(sm.test_su) >= 50
+ and avg(sm.test_su) < 80
+ ORDER BY sm.gakka_no DESC;
+
+
+
+ /*問１*/
+SELECT
+avg(sm.age_nb)
+FROM student_mst sm;
+
+/*問２*/
+SELECT
+avg(sm.age_nb)
+FROM student_mst sm
+ where sm.delete_ku = '0'
+ and sm.student_cd is not null
+ and sm.student_cd <> ''
+ and sm.gakka_no is not null;
+
+/*問３*/
+select 
+ sm.gakka_no
+,avg(sm.age_nb) 
+from student_mst sm
+where sm.delete_ku = '0'
+and sm.student_cd is not null
+and sm.student_cd <> ''
+and sm.gakka_no is not null
+group BY sm.gakka_no;
+
+/*問４*/
+select 
+ sm.gakka_no
+,avg(sm.test_su) 
+from student_mst sm
+where sm.delete_ku = '0'
+and sm.student_cd is not null
+and sm.student_cd <> ''
+and sm.gakka_no is not null
+group BY sm.gakka_no desc;
+
+/*問５*/
+select 
+ sm.gakka_no
+,avg(sm.test_su) 
+from student_mst sm
+where sm.delete_ku = '0'
+and sm.student_cd is not null
+and sm.student_cd <> ''
+and sm.gakka_no is not null
+group BY sm.gakka_no
+having avg(sm.test_su) >= 30
+and avg(sm.test_su) < 90
+ORDER BY sm.gakka_no DESC;
+
+/*問６*/
+select 
+ sm.gakka_no
+,avg(sm.test_su) 
+from student_mst sm
+where sm.delete_ku = '0'
+and sm.student_cd is not null
+and sm.student_cd <> ''
+and sm.gakka_no is not null
+group BY sm.gakka_no
+having avg(sm.test_su) >= 30
+and avg(sm.test_su) < 90
+ORDER BY avg(sm.test_su)  desc
+,sm.gakka_no asc;

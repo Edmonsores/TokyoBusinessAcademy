@@ -1,0 +1,60 @@
+/*問１：テーブル作成*/
+
+create table s24083030_news_tbl (
+ seq_no int not null auto_increment,
+ title_kj varchar(255) not null,
+ article_kj text null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  seq_no
+ )
+ );
+
+
+ /*問２：レコード一括登録*/
+insert into s24083030_news_tbl
+ select * from news_tbl;
+
+
+/*問３：レコード登録*/
+insert into s24083030_news_tbl(
+title_kj
+,article_kj
+,delete_ku
+,insert_at
+,update_at
+) values (
+'「Microsoft Edge」は画像編集ツールである説'
+,'「Microsoft Edge」は、Microsoftという大メジャーが開発しているにもかかわらず、バージョンアップのたびに野心的な機能を追加してくる、おもしろWebブラウザーでもあります。窓の杜でも毎回新機能を採り上げていますが、知らない機能があったりするので要注意です。'
+,'0'
+,now()
+,now()
+);
+
+
+/*問４：レコード登録*/
+insert into s24083030_news_tbl(
+title_kj
+,article_kj
+,delete_ku
+,insert_at
+,update_at
+) values (
+'「Google Chrome」はブラウザです'
+,'「Google Chrome」は、Googleのブラウザです'
+,'0'
+,now()
+,now()
+);
+
+
+/*問５：レコード削除*/
+delete from s24083030_news_tbl
+ where seq_no <= 5
+ and seq_no >=1;
+
+/*問６：作成URL*/
+https://tsb.well-field.co.jp/tsb2024/20240710/24083030/newslist.php

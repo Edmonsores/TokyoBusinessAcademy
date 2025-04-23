@@ -1,0 +1,189 @@
+SELECT*from student_mst sm;
+SELECT*from gakka_mst gm;
+
+/*Inner join*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.gakka_no
+,gm.gakka_kj
+ from student_mst sm
+ inner join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no;
+
+
+/*left join*/
+ select
+ sm.student_no
+,sm.student_kj
+,sm.gakka_no
+,gm.gakka_kj
+ from student_mst sm
+ left join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no;
+
+ select
+ sm.student_no
+,sm.student_kj
+,sm.gakka_no
+,gm.gakka_no
+,gm.gakka_kj
+ from student_mst sm
+ left join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no;
+
+
+/*right join*/
+ select
+ sm.student_no
+,sm.student_kj
+,sm.gakka_no
+,gm.gakka_kj
+ from student_mst sm
+ right join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no;
+
+ select
+ sm.student_no
+,sm.student_kj
+,sm.gakka_no
+,gm.gakka_no
+,gm.gakka_kj
+ from student_mst sm
+ right join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no;
+
+
+/* “before” and “after” */
+select
+ sm.student_no
+,sm.student_kj
+,sm.gakka_no
+,gm.gakka_kj
+ from student_mst sm
+ inner join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no
+ and sm.delete_ku = '0'
+ and gm.delete_ku = '0';
+
+
+/* Remember the order in which the syntax is written*/
+select
+ gm.gakka_no
+,gm.gakka_kj
+,AVG(sm.test_su)
+ from gakka_mst gm
+ inner join student_mst sm
+ on sm.gakka_no = gm.gakka_no
+ and sm.delete_ku = '0'
+ and gm.delete_ku = '0'
+ WHERE sm.test_su >=50
+ AND sm.test_su <=90
+ group by gm.gakka_no
+,gm.gakka_kj
+having AVG(sm.test_su)>=65
+and AVG(sm.test_su)<80
+ORDER BY AVG(sm.test_su) DESC
+,gm.gakka_no ASC;
+
+
+
+
+
+/*問１*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.test_su
+,sm.delete_ku
+,sm.gakka_no
+,gm.gakka_no
+,gm.gakka_kj
+,gm.delete_ku
+ from student_mst sm
+ inner join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no;
+
+ /*問２*/
+ select
+ sm.student_no
+,sm.student_kj
+,sm.test_su
+,sm.delete_ku
+,sm.gakka_no
+,gm.gakka_no
+,gm.gakka_kj
+,gm.delete_ku
+ from student_mst sm
+ inner join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no
+ and sm.delete_ku = '0'
+ and gm.delete_ku = '0';
+
+  /*問３*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.test_su
+,sm.delete_ku
+,sm.gakka_no
+,gm.gakka_no
+,gm.gakka_kj
+,gm.delete_ku
+ from student_mst sm
+ left join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no
+ and sm.delete_ku = '0'
+ and gm.delete_ku = '0';
+
+  /*問４*/
+  select
+ sm.student_no
+,sm.student_kj
+,sm.test_su
+,sm.delete_ku
+,sm.gakka_no
+,gm.gakka_no
+,gm.gakka_kj
+,gm.delete_ku
+ from student_mst sm
+ left join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no
+ and sm.delete_ku = '0'
+ and gm.delete_ku = '0'
+ WHERE sm.delete_ku = '0'
+ AND gm.delete_ku = '0';
+
+ /*問５*/
+  select
+sm.gakka_no
+,gm.gakka_kj
+,AVG(sm.test_su)
+ from student_mst sm
+ left join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no
+ and sm.delete_ku = '0'
+ and gm.delete_ku = '0'
+ WHERE sm.delete_ku = '0'
+ AND gm.delete_ku = '0'
+ group by gm.gakka_no
+,gm.gakka_kj;
+
+/*問６*/
+  select
+sm.gakka_no
+,gm.gakka_kj
+,AVG(sm.test_su)
+ from student_mst sm
+ left join gakka_mst gm
+ on sm.gakka_no = gm.gakka_no
+ and sm.delete_ku = '0'
+ and gm.delete_ku = '0'
+ WHERE sm.delete_ku = '0'
+ AND gm.delete_ku = '0'
+ group by gm.gakka_no
+,gm.gakka_kj
+having AVG(sm.test_su)>=30
+and AVG(sm.test_su)<80
+ORDER BY AVG(sm.test_su) DESC
+,sm.gakka_no ASC;

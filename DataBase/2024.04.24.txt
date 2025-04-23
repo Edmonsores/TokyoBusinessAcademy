@@ -1,0 +1,49 @@
+問１
+SELECT * FROM student_mst sm;
+
+問2
+select
+sm.student_no
+from student_mst sm;
+
+問3
+select
+sm.student_no
+,sm.student_kj
+,sm.student_kn
+,sm.gakka_no
+,sm.delete_ku
+from student_mst sm;
+
+問4
+select
+sm.student_no
+,sm.student_kj
+,sm.student_kn
+,sm.gakka_no
+,sm.delete_ku
+from student_mst sm
+where sm.gakka_no = 1;
+
+問5
+select
+sm.student_no
+,sm.student_kj
+,sm.student_kn
+,sm.gakka_no
+,sm.delete_ku
+from student_mst sm
+where sm.delete_ku = 0
+and sm.gakka_no = '1';
+
+問6
+select
+sm.student_no
+,sm.student_kj
+,sm.student_kn
+,sm.gakka_no
+,sm.delete_ku
+from student_mst sm
+where sm.gakka_no = 1
+ or sm.gakka_no = 5
+ or sm.gakka_no = 10;

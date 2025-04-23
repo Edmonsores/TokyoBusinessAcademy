@@ -1,0 +1,224 @@
+/*問1*/
+/*問1-1*/
+drop table s24083030_student_mst;
+drop table s24083030_gakka_mst;
+
+/*問1-2*/
+create table s24083030_student_mst(
+ student_no int not null,
+ student_kj varchar(255) not null,
+ student_kn varchar(255) null,
+ student_cd varchar(20) null,
+ gakka_no int null,
+ seibetu_ku char(1) not null,
+ age_nb int null,
+ test_su int null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  student_no
+ )
+ );
+
+create table s24083030_gakka_mst(
+ gakka_no int not null,
+ gakka_kj varchar(255) not null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  gakka_no
+ )
+ );
+
+/*問2*/
+delete from s24083030_student_mst;
+insert into s24083030_student_mst
+ select * from student_mst sm;
+
+delete from s24083030_gakka_mst;
+insert into s24083030_gakka_mst
+  select * from gakka_mst;
+
+/*問3*/
+select * from s24083030_student_mst sm;
+
+/*問4*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.student_kn 
+,sm.gakka_no
+ from s24083030_student_mst sm;
+
+/*問5*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.student_kn 
+,sm.gakka_no
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0';
+
+
+/*問6*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.student_kn 
+,sm.gakka_no
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0'
+ and sm.student_no  >= 15
+ and sm.student_no  < 20;
+
+/*問7*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.student_kn 
+,sm.gakka_no
+ from s24083030_student_mst sm
+ where sm.gakka_no = 10
+ or sm.student_no = 9
+ or sm.student_no = 8
+ or sm.student_no = 7;
+
+/*問8*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.student_kn 
+,sm.gakka_no
+ from s24083030_student_mst sm
+ where sm.gakka_no in(10,9,8,7);
+
+/*問9*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.student_kn 
+,sm.gakka_no
+ from s24083030_student_mst sm
+ where (sm.student_kj like '%正%'
+ or sm.student_kj like '%郎')
+ and sm.delete_ku = '0';
+
+/*問10*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.student_kn
+,sm.gakka_no
+ from s24083030_student_mst sm
+ where sm.student_cd  is NULL
+ or sm.student_cd  ='';
+
+/*問11*/
+select
+ sm.student_no
+,sm.student_kj
+,gm.gakka_no
+,gm.gakka_kj
+ from s24083030_student_mst sm
+ inner join s24083030_gakka_mst gm
+ on sm.gakka_no = gm.gakka_no
+where sm.delete_ku = '0'
+and gm.delete_ku = '0';
+
+/*問12*/
+select
+ sm.student_no
+,sm.student_kj
+,gm.gakka_no
+,gm.gakka_kj
+ from s24083030_gakka_mst gm
+ right join s24083030_student_mst sm
+ on gm.gakka_no = sm.gakka_no
+where sm.delete_ku = '0'
+and gm.delete_ku = '0';
+
+/*問13*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.age_nb
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0'
+ ORDER BY gm.gakka_kj  DESC;
+
+/*問14*/
+select
+ avg (sm.age_nb)
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0';
+
+/*問15*/
+select
+ sm.student_no
+ ,avg (sm.age_nb)
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0'
+ group by sm.gakka_no
+ HAVING avg (sm.age_nb) >= 30;
+
+/*問16*/
+select
+ sm.student_no
+,sm.student_kj
+,avg (sm.age_nb)
+ from s24083030_student_mst sm
+ inner join s24083030_gakka_mst gm
+ on sm.gakka_no = gm.gakka_no
+ where sm.gakka_no is NOT NULL
+ or sm.student_kn !=''
+group by sm.student_no 
+ ,sm.student_kj 
+ HAVING avg (sm.age_nb) >= 20
+ and avg (sm.age_nb) < 50
+ ORDER BY sm.gakka_no  DESC;
+
+/*問17*/
+insert into s24083030_student_mst(
+student_no
+,student_kj
+,student_kn
+,student_cd
+,gakka_no
+,seibetu_ku
+,age_nb
+,test_su
+,delete_ku
+,insert_at
+,update_at
+) values (
+2000
+,'TSB TEST'
+,'ティエスビー テスト'
+,'24000000'
+,10
+,'0'
+,50
+,60
+,'0'
+,now()
+,now()
+);
+
+/*問18*/
+update s24083030_student_mst set
+age_nb = 60
+,test_su = 80
+where student_no = 2000;
+
+/*問19*/
+update s24083030_student_mst set 
+ delete_ku = '1'
+ where student_no = 2000;
+
+/*問20 */
+delete from s24083030_student_mst
+ where student_no = 2000;

@@ -1,0 +1,143 @@
+/*2024-05-15*/
+
+/*includes を含む(fukumu)*/
+select * from student_mst sm
+ where sm.student_kj like '%本%';
+
+/*starts with から始まる*/
+ select * from student_mst sm
+ where sm.student_kj like '本%';
+
+/*ends with で終わる */
+ select * from student_mst sm
+ where sm.student_kj like '%本';
+
+/*null*/
+ select * from student_mst sm
+ where sm.student_cd is null;
+
+/*non null*/
+ select * from student_mst sm
+ where sm.student_cd is not null;
+
+/*「空」である*/
+select * from student_mst sm
+ where sm.student_cd = '';
+
+/*「空」ではない*/
+select * from student_mst sm
+ where sm.student_cd <> '';
+
+ /*Ascending order of student NO (student_no)
+ 学生NO（student_no）を昇順*/
+ select * from student_mst sm
+ order by sm.student_no asc;
+
+ /*Descending student NO (student_no)
+ 学生NO（student_no）を降順*/
+ select * from student_mst sm
+ order by sm.student_no desc;
+
+ /*Ascending order of department NO (gakka_no)
+Descending order of student name kana (student_kn)
+学科NO（gakka_no）を昇順
+学生名カナ（student_kn）を降順
+*/
+select * from student_mst sm
+ order by sm.gakka_no asc
+,sm.student_kn desc;
+
+/*Obtain data from student master (student_mst).
+Extraction condition
+Department NO (gakka_no) is <3> or more
+Department NO (gakka_no) is less than <8>
+Columns: Extract all columns.
+Sort
+Ascending order of department NO (gakka_no)
+Descending order of student name kana (student_kn)
+学生マスタ（student_mst）からデータを取得すること。
+抽出条件
+学科NO（gakka_no）が〈3〉以上
+学科NO（gakka_no）が〈8〉未満
+カラム：すべてのカラムを抽出すること。
+並び替え
+学科NO（gakka_no）を昇順
+学生名カナ（student_kn）を降順
+*/
+select * from student_mst sm
+ where sm.gakka_no >= 3
+ and sm.gakka_no < 8
+ order by sm.gakka_no asc
+,sm.student_kn desc;
+
+/*問１*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,student_cd
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+ where sm.student_kn like 'イ%'
+ AND sm.student_kn like '%リ';
+
+/*問２*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,student_cd
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+ where sm.student_cd is null;
+
+/*問３*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,student_cd
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+ where sm.gakka_no is not null;
+
+/*問４*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,student_cd
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+ where sm.student_cd = '';
+
+/*問５*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,student_cd
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+ where sm.student_cd <> '';
+
+/*問６*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,student_cd
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+ where sm.delete_ku = '0'
+ AND sm.student_cd <> ''
+ order by sm.gakka_no asc
+ ,sm.student_no desc;
+
+

@@ -1,0 +1,197 @@
+create table s24083030_student_mst (
+ student_no int not null,
+ student_kj varchar(255) not null,
+ student_kn varchar(255) null,
+ student_cd varchar(20) null,
+ gakka_no int null,
+ seibetu_ku char(1) not null,
+ age_nb int null,
+ test_su int null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  student_no
+ )
+);
+
+
+create table s24083030_gakka_mst (
+ gakka_no int not null,
+ gakka_kj varchar(255) not null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  gakka_no
+ )
+);
+
+SELECT now();
+
+insert into s24083030_student_mst(
+student_no
+,student_kj
+,student_kn
+,student_cd
+,gakka_no
+,seibetu_ku
+,age_nb
+,test_su
+,delete_ku
+,insert_at
+,update_at
+) values (
+1000
+,'井田 テスト'
+,'イダ テスト'
+,'21000000'
+,1
+,'0'
+,20
+,100
+,'0'
+,now()
+,now()
+);
+
+UPDATE s24083030_student_mst set
+ gakka_no = 10
+,delete_ku = '1'
+,update_at = now()
+ where student_no = 1000;
+
+delete from s24083030_student_mst
+ where student_no = 1000;
+
+
+delete from s24083030_student_mst
+ where student_no = 1000;
+insert into s24083030_student_mst(
+student_no
+,student_kj
+,student_kn
+,student_cd
+,gakka_no
+,seibetu_ku
+,age_nb
+,test_su
+,delete_ku
+,insert_at
+,update_at
+) values (
+1000
+,'井田 太郎'
+,'イダ タロウ'
+,'21000001'
+,2
+,'0'
+,40
+,90
+,'0'
+,now()
+,now()
+);
+
+
+
+SELECT * FROM s24083030_student_mst sm;
+
+delete from s24083030_student_mst;
+
+insert into s24083030_student_mst
+ select * from student_mst sm;
+
+INSERT INTO s24083030_gakka_mst
+  SELECT * from s24083030_gakka_mst gm;
+
+DROP table s24083030_student_mst sm;
+DROP table s24083030_gakka_mst gm;
+
+
+SELECT * FROM s24083030_student_mst sm;
+SELECT * FROM s24083030_gakka_mst gm;
+
+
+/*問１*/
+create table s24083030_student_mst (
+ student_no int not null,
+ student_kj varchar(255) not null,
+ student_kn varchar(255) null,
+ student_cd varchar(20) null,
+ gakka_no int null,
+ seibetu_ku char(1) not null,
+ age_nb int null,
+ test_su int null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  student_no
+ )
+);
+
+create table s24083030_gakka_mst (
+ gakka_no int not null,
+ gakka_kj varchar(255) not null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  gakka_no
+ )
+);
+
+/*問２*/
+insert into s24083030_student_mst
+ select * from student_mst sm;
+
+INSERT INTO s24083030_gakka_mst
+  SELECT * from s24083030_gakka_mst gm;
+
+/*問３*/
+delete from s24083030_student_mst
+ where student_no = 1000;
+insert into s24083030_student_mst(
+student_no
+,student_kj
+,student_kn
+,student_cd
+,gakka_no
+,seibetu_ku
+,age_nb
+,test_su
+,delete_ku
+,insert_at
+,update_at
+) values (
+1000
+,'TSB TARO'
+,'ティエスビー タロウ'
+,'24000000'
+,100
+,'0'
+,40
+,80
+,'0'
+,now()
+,now()
+);
+
+/*問４*/
+UPDATE s24083030_student_mst set
+test_su = 60
+,update_at = now()
+ where student_no = 1000;
+
+/*問５*/
+delete from s24083030_student_mst
+ where student_no = 1000;
+
+/*問６*/
+DROP table s24083030_student_mst sm;
+DROP table s24083030_gakka_mst gm;

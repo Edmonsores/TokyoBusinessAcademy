@@ -1,0 +1,256 @@
+
+/*1*/
+/*1-1*/
+drop table s24083030_student_mst;
+drop table s24083030_gakka_mst;
+
+/*1-2*/
+create table s24083030_student_mst(
+ student_no int not null,
+ student_kj varchar(255) not null,
+ student_kn varchar(255) null,
+ student_cd varchar(20) null,
+ gakka_no int null,
+ seibetu_ku char(1) not null,
+ age_nb int null,
+ test_su int null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  student_no
+ )
+ );
+
+create table s24083030_gakka_mst(
+ gakka_no int not null,
+ gakka_kj varchar(255) not null,
+ delete_ku char(1) not null,
+ insert_at datetime not null,
+ update_at datetime not null,
+
+ primary key(
+  gakka_no
+ )
+ );
+
+/*2*/
+delete from s24083030_student_mst;
+insert into s24083030_student_mst
+ select * from student_mst sm;
+
+delete from s24083030_gakka_mst;
+insert into s24083030_gakka_mst
+  select * from gakka_mst;
+
+/*3*/
+select * from s24083030_student_mst sm;
+
+/*4*/
+select
+ sm.student_no
+,sm.student_kj
+ from s24083030_student_mst sm;
+
+/*5*/
+select
+ sm.student_no
+,sm.student_kj
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0';
+
+/*6*/
+select
+ sm.student_no
+,sm.student_kj
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0'
+ and sm.student_no  >= 5;
+
+/*7*/
+select
+ sm.student_no
+,sm.student_kj
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0'
+ and sm.student_no < 10;
+
+/*8*/
+select
+ sm.student_no
+,sm.student_kj
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0'
+ or sm.student_no = 1;
+
+/*9*/
+select
+ sm.student_no
+,sm.student_kj
+ from s24083030_student_mst sm
+ where sm.student_no = 1
+ or sm.student_no = 2
+ or sm.student_no = 3
+ or sm.student_no = 5;
+
+/*10*/
+select
+ sm.student_no
+,sm.student_kj
+ from s24083030_student_mst sm
+ where (sm.student_kj like '%田%'
+ or sm.student_kj like '山%')
+ and sm.delete_ku = '0';
+
+/*11*/
+select
+ sm.student_no
+,sm.student_kj
+,sm.student_kn
+,sm.gakka_no
+ from s24083030_student_mst sm
+ where sm.gakka_no is NULL
+ or sm.student_kn ='';
+
+ /*12*/
+ select
+ sm.student_no
+,sm.student_kj
+,sm.age_nb
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0'
+ ORDER BY sm.age_nb asc;
+
+/*13*/
+ select
+ avg (sm.test_su)
+ from s24083030_student_mst sm;
+
+/*14*/
+select
+ min (sm.test_su)
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0';
+
+/*15*/
+select
+ sm.student_no
+ ,avg (sm.test_su)
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0
+ group by sm.gakka_no;
+
+/*16*/
+select
+ sm.student_no
+ ,avg (sm.test_su)
+ from s24083030_student_mst sm
+ where sm.delete_ku = '0'
+ group by sm.gakka_no
+ HAVING avg (sm.test_su) >= 65;
+
+/*17*/
+select
+ sm.student_no
+,sm.student_kj
+,gm.gakka_kj
+ from s24083030_student_mst sm
+ inner join s24083030_gakka_mst gm
+ on sm.gakka_no = gm.gakka_no;
+
+/*18*/
+select
+ sm.student_no
+,sm.student_kj
+,gm.gakka_kj
+ from s24083030_student_mst sm
+ left join s24083030_gakka_mst gm
+ on sm.gakka_no = gm.gakka_no
+ where sm.delete_ku = '0'
+ and gm.delete_ku = '0';
+
+
+select
+ sm.student_no
+,sm.student_kj
+,gm.gakka_kj
+ from s24083030_gakka_mst gm
+ right join s24083030_student_mst sm
+ on gm.gakka_no = sm.gakka_no
+ where sm.delete_ku = '0'
+ and gm.delete_ku = '0';
+
+
+/*19*/
+select
+ sm.student_no
+,sm.student_kj
+,gm.gakka_kj
+ from s24083030_student_mst sm
+ left join s24083030_gakka_mst gm
+ on sm.gakka_no = gm.gakka_no
+ where sm.delete_ku = '0'
+ and gm.delete_ku = '0'
+ and sm.seibetu_ku = '0'
+ ORDER BY gm.gakka_kj  asc;
+
+/*20*/
+select
+ gm.gakka_no
+,gm.gakka_kj
+,avg (sm.test_su)
+ from s24083030_student_mst sm
+ inner join s24083030_gakka_mst gm
+ on sm.gakka_no = gm.gakka_no
+ where sm.delete_ku = '0'
+ and gm.delete_ku = '0'
+ and sm.seibetu_ku = '0'
+ group by sm.gakka_no
+ ,gm.gakka_kj
+ HAVING avg (sm.test_su) >= 50
+ ORDER BY gm.gakka_kj  asc;
+
+/*21*/
+insert into s24083030_student_mst(
+student_no
+,student_kj
+,student_kn
+,student_cd
+,gakka_no
+,seibetu_ku
+,age_nb
+,test_su
+,delete_ku
+,insert_at
+,update_at
+) values (
+1000
+,'TSB TARO '
+,'ティエスビー タロウ'
+,'22000000'
+,5
+,'0'
+,40
+,80
+,'0'
+,now()
+,now()
+);
+
+
+/*22*/
+update s24083030_student_mst set
+test_su = 60
+where student_no = 1000;
+
+
+/*23*/
+update s24083030_student_mst set
+delete_ku = '1'
+where student_no = 1000;
+
+
+/*24*/
+delete from s24083030_student_mst
+where student_no = 1000;

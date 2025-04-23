@@ -1,0 +1,160 @@
+/*1*/
+/*student_mstのすべてのカラム*/
+/*を取得する*/
+
+SELECT*from student_mst sm;
+
+/*2*/
+/*student_mstから*/
+/*カラム　student_no, student_kj, gakka_no*/
+/*を取得する*/
+
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,gakka_no
+from student_mst sm;
+
+/*3*/
+/*student_mstから*/
+/*カラム　student_no, student_kj, gakka_no*/
+/*を取得する*/
+/*抽出条件：gakka_noが５のデータ*/
+
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,gakka_no
+from student_mst sm
+where sm.gakka_no = 5;
+
+/*4*/
+/*student_mstから*/
+/*カラム　student_no, student_kj, gakka_no, delete_ku*/
+/*を取得する*/
+/*抽出条件：gakka_noが５のデータ*/
+/*     または, gakka_noが７のデータ*/
+
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,gakka_no
+from student_mst sm
+where sm.gakka_no = 5
+OR sm.gakka_no = 7;
+
+/*5*/
+/*student_mstから*/
+/*カラム　student_no, student_kj, gakka_no, delete_ku*/
+/*を取得する*/
+/*抽出条件：gakka_noが５のデータ*/
+/*     かつ,delete_kuが１のデータ*/
+
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,gakka_no
+from student_mst sm
+where sm.gakka_no = 5
+AND sm.delete_ku = '1';
+
+
+/*Today's class content*/
+
+select * from student_mst sm
+ where (sm.gakka_no = 1
+ or sm.gakka_no = 2)
+ and sm.delete_ku = '0';
+
+
+select * from student_mst sm
+ where (sm.gakka_no = 1
+ or sm.gakka_no = 2
+ or sm.gakka_no = 3
+ or sm.gakka_no = 4
+ or sm.gakka_no = 5)
+ and sm.delete_ku = '0';
+
+ /*Use "in" to replace many "or"*/
+
+ select * from student_mst sm
+ where sm.gakka_no in (1,2,3,4,5)
+ and sm.delete_ku = '0';
+
+/*　“>=” or more(以上）*/
+/*　Greater than ">"（より大きい）*/
+/*　Below “<=”　（以下）*/
+/* “<” less than(未満（より小さい))*/
+/*　Other than “!=, <>” (以外)*/
+
+
+
+/*問題１*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+where sm.delete_ku = '0'
+AND sm.gakka_no = 1;
+
+/*問題２*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+where sm.gakka_no = 1
+OR sm.gakka_no = 10
+AND sm.delete_ku = '1';
+
+/*問題３*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+where sm.gakka_no = 1
+OR sm.gakka_no = 10
+AND sm.delete_ku = '0';
+
+/*問題４*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+where (sm.gakka_no = 1
+OR sm.gakka_no = 10)
+AND sm.delete_ku = '0';
+
+/*問題５*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+where sm.gakka_no in (1,2,3,5,10)
+AND sm.delete_ku = '0';
+
+/*問題６*/
+SELECT
+  sm.student_no
+ ,sm.student_kj
+ ,sm.student_kn
+ ,sm.gakka_no
+ ,sm.delete_ku
+from student_mst sm
+where sm.gakka_no >= 4
+AND sm.gakka_no != 7
+AND sm.delete_ku = '0';
