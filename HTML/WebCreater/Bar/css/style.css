@@ -1,0 +1,104 @@
+﻿@charset "utf-8";
+
+/* 基本レイアウト ここから↓ */
+@import url(common.css);
+header {
+	width: 820px;
+	height: 70px;
+	margin: 0 auto 20px auto;
+	padding-top: 20px;
+	position: relative;
+}
+header h1 {
+	position: absolute;
+}
+nav {
+	padding-top: 10px;
+	position: absolute;
+	right: 0;
+}
+nav ul {
+	list-style-type: none;
+	overflow: hidden;
+}
+nav ul li {
+	float: left;
+}
+nav ul li a:hover{
+	box-sizing: 0.85px;
+}
+footer {
+	width: 820px;
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+}
+footer p {
+	margin-bottom: 0;
+	padding: 10px 0 10px 0;
+	background-color: #bc8e03;
+	text-align: center;
+}
+footer small{
+	font-size: 100%;
+}
+#main h1{
+	margin: 0 0 20px 0;
+	padding: 15px 0 10px 45px;
+	border-bottom: 2px solid #f7ca3e;
+	background-image: url(../images/h1_part.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	font-size: 157%;
+}
+/* 基本レイアウト ここまで↑ */
+
+/* 「こだわり」ページ ここから↓ */
+.image_left{
+	margin-bottom: 25px;
+	margin-right: 25px;
+	float: left;
+}
+
+/* 「こだわり」ページ ここまで↑ */
+
+/* 「メニュー」ページ ここから↓ */
+table{
+	width: 598px;
+	margin-bottom: 30px;
+	border-collapse: collapse;
+}
+table caption{
+	overflow: hidden;
+	text-align: left;
+}
+table th, table td{
+	padding: 10px;
+	border: 1px solid #ffffff;
+}
+table th{
+	width: 325px;
+	background-color: #7c7979;
+	text-align: left;
+}
+table td{
+	text-align: right;
+}
+/* 「メニュー」ページ ここまで↑ */
+
+/* 「Web予約」ページ ここから↓ */
+form{
+	margin-top: 30px;	
+}
+input#name, textarea#appointment{
+	border-style: none;
+}
+input#name{
+	width: 280px;
+}
+textarea#appointment{
+	width: 400px;
+	height: 180px;
+	overflow-y: scroll;
+}
+/* 「Web予約」ページ ここまで↑ */
