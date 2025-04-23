@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Web予約 | Beer Buddies</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+	<h1><a href="index.html"><img src="images/logo.png" width="244" height="57" alt="ビアバディーズ"></a></h1>
+	<nav>
+		<ul>
+			<li><a href="pride.html"><img src="images/nav_pride.png" width="170" height="51" alt="こだわり"></a></li>
+			<li><a href="menu.html"><img src="images/nav_menu.png" width="170" height="51" alt="メニュー"></a></li>
+			<li><a href="reserve.html"><img src="images/nav_reserve.png" width="170" height="51" alt="Web予約"></a></li>
+		</ul>
+	</nav>
+</header>
+<div id="contents">
+	<div id="main">
+        <article>
+            <h1>Web予約</h1>
+            <p>こちらからご予約を承っております。Webでご予約いただいたお客さまには当日ご来店時に、1ドリンクをサービスいたします。<br>
+                ご予約をキャンセルされる際は、ご来店前日までにご連絡ください。
+            </p>
+            <ol>
+                <li>「予約名」欄にはお名前を、「予約内容」欄にはご来店日、予定人数、連絡先を入力してください。</li>
+                <li>予約名と予約内容をご確認の上、「予約する」ボタンをクリックしてください。</li>
+                <li>ご来店の際、予約名をお伺いし、1ドリンクを人数分サービスいたします。</li>
+            </ol>
+            <form action="#">
+                <label for="name"><P>予約名<br>
+                <input type="text" name="name" id="name"></P></label>
+                <label for="appointment"></label><p>予約内容<br>
+                <textarea name="appointment" id="appointment" cols="30" rows="10"></textarea>
+                </p>
+                <input type="submit" value="予約する">
+            </form>
+        </article>
+	</div>
+	<div id="sub">
+		<aside>
+			<ul>
+				<li><a href="menu.html"><img src="images/aside_menu.jpg" width="180" height="130" alt="メニュー"></a></li>
+				<li><a href="reserve.html"><img src="images/aside_reserve.jpg" width="180" height="80" alt="Web予約"></a></li>
+			</ul>
+		</aside>
+	</div>
+</div>
+<footer>
+	<p><small> 2015 Beer Buddies All rights reserved.</small></p>
+</footer>
+</body>
+</html>
