@@ -1,0 +1,106 @@
+﻿@charset "utf-8";
+
+/* 基本レイアウト ここから↓ */
+@import url(common.css);
+header {
+	width: 810px;
+	height: 95px;
+	margin: 0 auto 30px auto;
+	position: relative;
+	overflow: hidden;
+}
+header h1 {
+	margin: 25px 0 25px 18px;
+	float: left;
+	position: absolute;
+}
+nav {
+	margin: 25px 0 25px 25px;
+	float: right;
+}
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+}
+nav ul li {
+	margin-right: 20px;
+	float: left;
+}
+nav ul li a:hover{
+	opacity: 0.8;
+}
+footer {
+	width: 810px;
+	height: 55px;
+	margin: 0 auto 0 auto;
+	background-image: url(../images/footer.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+footer p {
+	margin-bottom: 0;
+	padding: 17px 0 17px 0;
+	text-align: center;
+}
+footer small{
+	font-size: 100%;
+}
+#main h1{
+	margin: 0 0 20px 0;
+	padding: 5px 35px 5px 10px;
+	background-image: url(../images/h1_right.gif);
+	background-repeat: no-repeat;
+	background-position: 550px 5px;
+	background-color: #fceae8;
+	font-size: 150%;
+	color: #e97163;
+}
+/* 基本レイアウト ここまで↑ */
+
+/* 「イロハ英語教室について」ページ ここから↓ */
+.picture_left{
+	margin: 0 20px 40px 20px;
+	float: left;
+}
+/* 「イロハ英語教室について」ページ ここまで↑ */
+
+/* 「コース紹介」ページ ここから↓ */
+table{
+	width: 577px;
+	margin-bottom: 20px;
+	border-collapse: collapse;
+}
+table caption{
+	overflow: hidden;
+	text-align: left;
+}
+table th, table td{
+	padding: 10px;
+	border: 1px solid #666666;
+}
+table th{
+	background-color: #ffe324;
+}
+table td.target{
+	width: 60px;
+	text-align: center;
+}
+table td.learning{
+	width: 320px;
+}
+/* 「コース紹介」ページ ここまで↑ */
+
+/* 「見学お申込み」ページ ここから↓ */
+form{
+	margin-top: 30px;
+}
+input#name, textarea#request{
+	border: 1px solid #999999;
+}
+textarea#request{
+	width: 450px;
+	height: 150px;
+	overflow: scroll;
+}
+/* 「見学お申込み」ページ ここまで↑ */
