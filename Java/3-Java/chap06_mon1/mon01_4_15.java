@@ -3,13 +3,16 @@ package chap06_mon1;
 public class mon01_4_15 {
 	public static void main (String[]args) {
 		
-		Student[] cards=new Stdent[3];
-		cards[0]
-		Student s1= new Student(100, "Edgard");
-		Student s2= new Student(101, "Malekoo");
-		Student s3= new Student(102, "Sanjid");
+		System.out.println("STudentCard.counter"+Student.counter);
 		
-		System.out.println("三角の戻り値の面積："+out_triarea)
+		
+		Student a = new Student(12345, "鈴木太郎");
+		a.printmethod();
+		System.out.println("StudentCard.counter="+Student.counter);
+		
+		Student b = new Student(12346, "佐藤花子");
+		b.printmethod();
+		
 	}
 
 }
