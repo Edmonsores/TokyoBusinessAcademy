@@ -1,0 +1,20 @@
+1－ テーブル
+2－レコード
+３－カラム
+
+/*4*/
+SELECT * FROM student_mst sm;
+
+/*5*/
+select
+sm.student_no
+from student_mst sm;
+
+/*6*/
+select
+sm.student_no
+,sm.student_kj
+,sm.tudent_kn
+,sm.gakka_no
+,sm.delete_ku
+from student_mst sm;
