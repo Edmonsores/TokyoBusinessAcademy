@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>フォルムスライド</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #questionary {
+      width: 300px;
+      height: 180px;
+      overflow: hidden;
+    }
+    #questions {
+      width: 300px;
+      display: flex;
+      margin-left: 0;
+    }
+    .question {
+      width: 300px;
+      flex-shrink: 0;
+    }
+  </style>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function(){
+      $("input[name='q1']").click(function(){
+        $("#questions:not(:animated)").animate({
+          marginLeft: "-300px"
+        }, "slow", "swing");
+      });
+
+      $("input[name='q2']").click(function(){
+        $("#questions:not(:animated)").animate({
+          marginLeft: "-600px"
+        }, "slow", "swing");
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="questionary">
+    <div id="questions">
+      <div class="question">
+        <p>問１：学校はどこにある？</p>
+        <input type="radio" name="q1" value="1"> 東京<br>
+        <input type="radio" name="q1" value="2"> 大阪
+      </div>
+      <div class="question">
+        <p>問２：何年生ですか？</p>
+        <input type="radio" name="q2" value="1"> 1年生<br>
+        <input type="radio" name="q2" value="2"> 2年生
+      </div>
+      <div class="question">
+        <p>問３：就活を始めた？</p>
+        <input type="radio" name="q3" value="1"> はい<br>
+        <input type="radio" name="q3" value="2"> いいえ
+      </div>
+    </div>
+  </div>
+</body>
+</html>

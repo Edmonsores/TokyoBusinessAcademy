@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>スタイルの変更</title>
+</head>
+<body id="abc">
+    <h1>文字サイズの変更</h1>
+    <p>以下のボタンをクイックするとホームページの文字色を変更できます</p>
+    <button onclick="document.getElementById('abc').style.color='red';">赤色</button>
+    <button onclick="document.getElementById('abc').style.color='green';">緑色</button>
+    <button onclick="document.getElementById('abc').style.color='blue';">青色</button>
+    <button onclick="document.getElementById('abc').style.color='orange';">オレンジ</button>
+    <button onclick="document.getElementById('abc').style.color='black';">黒色</button>
+    <button onclick="document.getElementById('abc').style.color='white';">白色</button>
+    <h1>背景色の変更</h1>
+    <p>以下のボタンをクイックするとホームページの背景色を変更できます</p>
+    <button onclick="document.getElementById('abc').style.backgroundColor='red';">赤色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='green';">緑色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='blue';">青色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='orange';">オレンジ</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='black';">黒色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='white';">白色</button>
+    <P>
+    <button onclick="document.getElementById('abc').style.backgroundColor='white'; 
+    document.getElementById('abc').style.fontWeight = 'normal';
+    document.getElementById('abc').style.border = 'none';
+    document.getElementById('abc').style.fontFamily = 'initial';
+    document.getElementById('abc').style.textDecoration = 'none';
+    document.getElementById('abc').style.color='black';">初期化</button>
+    </P>
+    <p>
+    <button onclick="document.getElementById('abc').style.fontWeight='bold';">太字</button>
+    <button onclick="document.getElementById('abc').style.fontFamily='Serif';">フォントを明朝系に</button>
+    <button onclick="document.getElementById('abc').style.textDecoration='underline';">下線を引く</button>
+    <button onclick="document.getElementById('abc').style.border='5px solid red';">枠線で囲む</button>
+    </p>
+</body>
+</html>

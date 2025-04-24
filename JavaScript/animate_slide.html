@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>アニメーションスライド</title>
+  <style>
+    * { margin: 0; padding: 0; }
+    p {
+      width: 800px;
+      height: 267px;
+      margin: 0;
+    }
+    div {
+      width: 395px;
+      height: 267px;
+      overflow: hidden;
+    }
+    img {
+      float: left;
+    }
+  </style>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function(){
+      $("#flower").click(function(){
+        $("p:not(:animated)").animate({
+          marginLeft : "-400px"
+        }, "slow", "swing");
+      });
+      $("#building").click(function(){
+        $("p:not(:animated)").animate({
+          marginLeft : "0px"
+        }, "slow", "swing");
+      });
+    });
+  </script>
+</head>
+<body>
+  <div>
+    <p>
+      <img src="images/flower.jpg" alt="flower" id="flower" width="395" height="267">
+      <img src="images/building.jpg" alt="building" id="building" width="395" height="267">
+    </p>
+  </div>
+</body>
+</html>
