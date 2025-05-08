@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>BMI計算</title>
+</head>
+<body>
+
+  <p>身長 = 170cm, 体重 = 70kg のBMIと標準体重を計算します<br>
+     BMIは体重/(身長*身長) <br>
+     標準体重は(身長-100)*0.9</p>
+  <button onclick="keisan()">BMI</button>
+  <button onclick="keisan1()">標準体重</button>
+  <div id="b">ここにBMIが表示されます</div>
+  <div id="h">ここに標準体重が表示されます</div>
+
+  <script>
+    function keisan() {
+      let shinchou = 170;
+      let taijuu = 70;
+
+      let bmi = taijuu / (shinchou * shinchou) * 10000;
+      document.getElementById("b").textContent = "BMIは " + bmi + " です";
+    }
+    function keisan1() {
+      let shinchou = 170;
+      let taijuu = 70;
+
+      let hyoujunTaijuu = (shinchou - 100) * 0.9;
+      document.getElementById("h").textContent = "標準体重は " +hyoujunTaijuu + " です";
+    }
+
+  </script>
+
+</body>
+</html>
+

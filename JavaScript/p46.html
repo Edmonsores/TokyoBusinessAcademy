@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>変数の演算</title>
+<style>
+    #message {
+        width: 250px;
+        border: solid 3px #FF9999;
+        padding: 15px;
+        margin-top: 30px;
+    }
+</style>
+</head>
+<body>
+    <h3>問題</h3>
+    <p>日本で一番高い山は？<button onClick="showAnswer();">解答を見る</button></p>
+    <div id="message">ここに解答が表示されます。</div>
+    <script>
+        function showAnswer(){
+            let answerBox = document.getElementById('message');
+            answerBox.textContent = '答えは「富士山」です。';
+        }
+    </script>
+</body>
+</html>

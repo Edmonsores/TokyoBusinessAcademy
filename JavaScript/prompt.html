@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>prompt</title>
+</head>
+<body>
+    <h3>変数の演算</h3>
+    数値１、数値２を連続して入力してください<br>
+    変数「a」と「b」の足し算の計算結果を表示します。<br>
+    <br>
+    <button onClick="tashizan()">足し算</button>
+    <script>
+        let a, b, kai;
+        function tashizan(){
+            let a = parseInt(prompt('数値１',''));
+            let b = parseInt(prompt('数値２',''));
+            kai = a + b;
+            alert("答えは"+kai+"です")
+        }
+    </script>
+</body>
+</html>

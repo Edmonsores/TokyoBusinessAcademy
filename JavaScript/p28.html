@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>変数の利用</title>
+</head>
+<body>
+    <h3>問題</h3>
+    16+21=<button onClick="kotae()">答えを見る見る</button>
+    <h3>問題</h3>
+    日本で一番高い山は？<button onClick="kotae1()">答えを見る見る</button><br>
+    世界で一番高い山は？<button onClick="kotae2()">答えを見る見る</button>
+    <script>
+        function kotae(){
+            let kai = 37;
+            alert(kai);
+        }
+        let yama;
+        function kotae1(){
+            yama = "富士山";
+            alert(yama);
+        }
+        function kotae2(){
+            yama = "チョモランマ";
+            alert(yama);
+        }
+    </script>
+</body>
+</html>

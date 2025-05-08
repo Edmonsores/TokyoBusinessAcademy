@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>スタイルの変更</title>
+</head>
+<script>
+    function syokika() {
+        let button = document.getElementById('abc');
+        button.style.backgroundColor = 'white';
+        button.style.color = 'black';
+    }
+    function color() {
+          let backgroundColor = prompt("背景色の色名をred, green, blue, yellow, black, whiteの中から入力してください");
+          let textColor = prompt("文字色の色名をred, green, blue, yellow, black, whiteの中から入力してください)");
+   
+          if (backgroundColor) {
+            document.getElementById('abc').style.backgroundColor = backgroundColor;
+          }
+          if (textColor) {
+            document.getElementById('abc').style.color = textColor;
+          }
+        }
+</script>
+<body id="abc">
+    <h1>文字サイズの変更</h1>
+    <p>以下のボタンをクイックするとホームページの文字色を変更できます</p>
+    <button onclick="document.getElementById('abc').style.color='red';">赤色</button>
+    <button onclick="document.getElementById('abc').style.color='green';">緑色</button>
+    <button onclick="document.getElementById('abc').style.color='blue';">青色</button>
+    <button onclick="document.getElementById('abc').style.color='black';">黒色</button>
+    <button onclick="document.getElementById('abc').style.color='white';">白色</button>
+    <h1>背景色の変更</h1>
+    <p>以下のボタンをクイックするとホームページの背景色を変更できます</p>
+    <button onclick="document.getElementById('abc').style.backgroundColor='red';">赤色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='green';">緑色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='blue';">青色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='black';">黒色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='white';">白色</button>
+    <P>
+    <button onclick="syokika()">初期化</button>
+    <button onclick="color()">色を入力</button>
+    </P>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>BMI計算</title>
+</head>
+<body>
+
+  <h4>身長と体重を入力してください<br>
+     「BMI=体重/(身長*身長)*10000」と <br>
+     「標準体重=(身長-100)*0.9」を計算します</h4>
+  <button onclick="keisan()">BMI</button>
+  <button onclick="keisan1()">標準体重</button>
+  <script>
+    function keisan() {
+      let shinchou = parseInt(prompt('身長を入力してください',''));
+      let taijuu = parseInt(prompt('体重を入力してください',''));
+      let bmi = taijuu / (shinchou * shinchou) * 10000;
+      alert("BMIは " + bmi + " です")
+    }
+    function keisan1() {
+      let shinchou = parseInt(prompt('身長を入力してください',''));
+      let hyoujunTaijuu = (shinchou - 100) * 0.9;
+      alert("標準体重は " +hyoujunTaijuu + " です")
+    }
+
+  </script>
+
+</body>
+</html>
+
