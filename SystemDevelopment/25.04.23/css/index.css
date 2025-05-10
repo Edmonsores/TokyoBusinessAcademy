@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#index-midashi{
+	padding-top:20px;
+	text-align: center;
+}
+#index-midashi-welcome{
+	padding-top:20px;
+	padding-bottom:20px;
+	font-size:18px;
+	color:var(--color-font03);
+}
+
+/*テキストボックスなどの入力チェックエラー時に利用*/
+.failed_validation {
+    background: red;
+    color: white;
+	padding: 5px 0px 5px 10px;
+}
+
+#error_user_last_name {
+	display: none;
+}
+
+#error_user_first_name {
+	display: none;
+}
+
+#error_user_last_name_kana {
+	display: none;
+}
+
+#error_user_first_name_kana {
+	display: none;
+}
+
+#error_password {
+	display: none;
+}
+
+#error_password_confirm {
+	display: none;
+}
+
+#failed_confirm {
+	display: none;
+}
+
+#error_event_name {
+	display: none;
+}
+
+#error_event_datetimes {
+	display: none;
+}
+
+#error_login_id {
+	display: none;
+}
+
+#duplicate_login_id {
+	display: none;
+}
+
+/*------------------------------------------------------
+ Tablet ~
+------------------------------------------------------*/
+@media screen and (min-width:768px) {
+
+  /* タブレット端末から効くスタイル */
+	#index-midashi-welcome{
+		font-size:28px;
+	}
+}
+
+/*------------------------------------------------------
+ PC
+------------------------------------------------------*/
+@media screen and (min-width:920px) {
+	
+	/* PCから効くスタイル */
+	#index-midashi-welcome{
+		font-size:48px;
+	}
+}
