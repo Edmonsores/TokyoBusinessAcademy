@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<TITLE>p65</TITLE>
+</head>
+<body>
+    <h1>整数の合計</h1>
+    <p>ボタンをクリックすると、１～１００を合計した結果を表示します。</p>
+<button onClick="add100()">計算結果</button>
+<button onClick="addodd()">奇数計算結果</button>
+<button onClick="addeven()">偶数計算結果</button>
+<script>
+function add100() {
+    let answer = 0;
+    for(let i=1; i<=100; i++){
+        answer = answer + i;
+    }
+    alert('１～１００を合計すると'+answer+'になります。');
+}
+function addodd() {
+    let answer = 0;
+    for(let i=1; i<=100; i+=2){
+        answer = answer + i;
+    }
+    alert('１～１００の奇数を合計すると'+answer+'になります。');
+}
+function addeven() {
+    let answer = 0;
+    for(let i=2; i<=100; i+=2){
+        answer = answer + i;
+    }
+    alert('１～１００の偶数を合計すると'+answer+'になります。');
+}
+</script>
+</body>
+</html>

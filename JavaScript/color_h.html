@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>スタイルの変更</title>
+</head>
+<script>
+    function syokika() {
+        let button = document.getElementById('abc');
+        button.style.backgroundColor = 'white';
+        button.style.color = 'black';
+        button.style.fontWeight = 'normal';
+        button.style.border = 'none';
+        button.style.fontFamily = 'initial';
+        button.style.textDecoration = 'none';
+    }
+    let colors = ["red", "green", "blue", "yellow", "black", "white"];
+    function random() {
+        let randomColor = Math.floor(Math.random() * colors.length);
+        document.getElementById('abc').style.backgroundColor = colors[randomColor];
+    }
+</script>
+<body id="abc">
+    <h1>文字サイズの変更</h1>
+    <p>以下のボタンをクイックするとホームページの文字色を変更できます</p>
+    <button onclick="document.getElementById('abc').style.color='red';">赤色</button>
+    <button onclick="document.getElementById('abc').style.color='green';">緑色</button>
+    <button onclick="document.getElementById('abc').style.color='blue';">青色</button>
+    <button onclick="document.getElementById('abc').style.color='orange';">オレンジ</button>
+    <button onclick="document.getElementById('abc').style.color='black';">黒色</button>
+    <button onclick="document.getElementById('abc').style.color='white';">白色</button>
+    <h1>背景色の変更</h1>
+    <p>以下のボタンをクイックするとホームページの背景色を変更できます</p>
+    <button onclick="document.getElementById('abc').style.backgroundColor='red';">赤色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='green';">緑色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='blue';">青色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='orange';">オレンジ</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='black';">黒色</button>
+    <button onclick="document.getElementById('abc').style.backgroundColor='white';">白色</button>
+    <P>
+    <button onclick="syokika();">初期化</button>
+    <button onclick="random();">ランダム背景色変更</button>
+    </P>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>zeikomi</title>
+</head>
+<body>
+  <p>５つの数値（100,200,300,400,500）の税込み価格を表示されます。</p>
+  <button onclick="Tax();">計算結果</button>
+
+  <script>
+    let Kakaku = [100, 200, 300, 400, 500];
+    let zeikomi = new Array(5); 
+
+    function Tax() {
+      for (let i = 0; i < Kakaku.length; i++) {
+        zeikomi[i] = Kakaku[i] * 1.1; 
+        alert(Kakaku[i]+"円は税込みで" + parseInt(zeikomi[i])+"円です");//parseInt to change it to intenger
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Omikuji</title>
+<p>大吉、中吉、吉、小吉、末吉、凶、大凶の中で</p>
+<button onclick="randomFortune();">あなたの運勢は？</button>
+<script>
+    let fortunes = ['大吉','中吉','吉','小吉','末吉','凶','大凶'];
+
+    function randomFortune() {
+      let random1 = Math.floor(Math.random() * fortunes.length);
+      let todayFortune = fortunes[random1];
+      alert("今日のあなたの運勢は" + todayFortune + "です！");
+    }
+</script>
+</body>
+</html>
