@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>複数の要素の取得</title>
+</head>
+<body>
+  <h3>会場と日程</h3>
+  <ul id="schedule">
+    <li>札幌（９/５）</li>
+    <li>仙台（９/８）</li>
+    <li>東京（９/１１）</li>
+    <li>横浜（９/１２）</li>
+  </ul>
+
+  <button onclick="get_li()">要素を取得</button>
+
+  <script>
+    function get_li() {
+      let list = document.querySelectorAll('li');
+      let stations = ["新宿駅", "代々木駅", "渋谷駅", "原宿駅"];
+
+      for (let i = 0; i < list.length; i++) {
+        list[i].innerHTML = "<h" + (i + 1) + ">" + stations[i] + "</h" + (i + 1) + ">";
+      }
+    }
+  </script>
+</body>
+</html>
+
+

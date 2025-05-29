@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>和暦変換</title>
+  <script>
+    function convertToWareki() {
+      let year = prompt("西暦何年？");
+      let y = parseInt(year);
+
+      let result = "";
+
+      if (y <= 1867) {
+         alert("1867年以前は明治以前です");
+      } else if (y >= 1868 && y <= 1911) {
+         alert(`明治${y - 1868 + 1}年です`);
+      } else if (y >= 1912 && y <= 1925) {
+        alert(`大正${y - 1912 + 1}年です`);
+      } else if (y >= 1926 && y <= 1988) {
+         alert(`昭和${y - 1926 + 1}年です`);
+      } else if (y >= 1989 && y <= 2018) {
+        alert(`平成${y - 1989 + 1}年です`);
+      } else if (y >= 2019) {
+        alert(`令和${y - 2019 + 1}年です`);
+      }
+
+      alert(result);
+    }
+  </script>
+</head>
+<body>
+  <p>西暦を和暦に変換できます<br>
+  <button onclick="convertToWareki()">西暦を入力してください</button><br>
+  1867年以前は明治以前<br>
+  1868年から1911年までは明治<br>
+  1912年から1925年までは大正<br>
+  1926年から1988年までは昭和<br>
+  1989年から2018年までは平成 それ以降は令和</p>
+</body>
+</html>

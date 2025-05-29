@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>要素の取得と内容の変更</title>
+  <style>
+    #status{
+        font-weight: bold;
+        color: #FF0000;
+    }
+  </style>
+</head>
+<body>
+    <h1>座席の予約</h1>
+    <p>東京会場<span id="status">(予約受付中)</span></p>
+    <div id="info"><button onclick="reserve()">予約する</button></div>
+    <script>
+        function reserve(){
+            document.getElementById('status').textContent='(予約済み)';
+            document.getElementById('info').innerHTML='<b>ありがとうございました。</b>';
+        }
+    </script>
+</body>
+</html>
+

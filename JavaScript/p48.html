@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>fuji</title>
+</head>
+<body>
+    <h3>問題</h3>
+    <p>日本で一番高い山は？ <button onclick="showAnswer();">解答を見る</button></p>
+    <div id="message">ここに解答が表示されます。</div>
+
+    <script>
+        function showAnswer(){
+            let anserBox = document.getElementById('message');
+            anserBox.innerHTML = '答えは「富士山」です。<br><img src="images/mt_fuji.jpg">';
+        }
+    </script>
+</body>
+</html>
+

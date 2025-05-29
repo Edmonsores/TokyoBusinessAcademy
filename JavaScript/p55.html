@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>複数の要素の取得</title>
+</head>
+<body>
+    <h3>会場と日程</h3>
+    <ul id="schedule">
+        <li>札幌（９/５）</li>
+        <li>仙台（９/８）</li>
+        <li>東京（９/１１）</li>
+        <li>横浜（９/１２）</li>
+    </ul>
+        <button onclick="showEast()">関東を表示</button>
+        <button onclick="showWest()">関西を表示</button>
+
+    <script>
+        let east = ['札幌（９/５）','仙台（９/８）','東京（９/１１）','横浜（９/１２）'];
+        let west = ['大阪（９/１８）','広島（９/２０）','福岡（９/２３）',''];
+        let list = document.querySelectorAll('#schedule li');
+        function showWest(){
+            list[0].textContent = west[0];
+            list[1].textContent = west[1];
+            list[2].textContent = west[2];
+            list[3].textContent = west[3];
+        }
+        function showEast(){
+            list[0].textContent = east[0];
+            list[1].textContent = east[1];
+            list[2].textContent = east[2];
+            list[3].textContent = east[3];
+        }
+    </script>
+</body>
+</html>
+
