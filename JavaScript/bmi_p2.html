@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>BMI計算</title>
+</head>
+<body>
+
+  <p>身長と体重入力して、BMIと標準体重を表示し評価も表示されます<br>
+     BMIは体重/(身長*身長)*10000<br>
+     標準体重は(身長-100)*0.9</p>
+  <button onclick="keisan()">BMI</button>
+  <button onclick="keisan1()">標準体重</button>
+  <div id="b">ここにBMIが表示されます</div>
+  <div id="h">ここに標準体重が表示されます</div>
+  <div id="a">ここに評価が表示されます</div>
+
+  <script>
+    function keisan() {
+    let shinchou = parseInt(prompt('身長を入力してください',''));
+    let taijuu = parseInt(prompt('体重を入力してください',''));
+    let bmi = taijuu / (shinchou * shinchou) * 10000;
+    document.getElementById("b").textContent = "BMIは " + bmi + " です";
+    if(bmi >= 30){
+        document.getElementById("a").textContent = "あなたは太りすぎです";
+        } 
+        else if(bmi>=25 && bmi < 30) {
+            document.getElementById("a").textContent = "あなたは太り気味です";
+        }
+        else if(bmi>=20 && bmi < 25){
+            document.getElementById("a").textContent = "あなたは標準です";
+        }
+        else{
+            document.getElementById("a").textContent = "あなたはやせ気味です";
+        } 
+    }
+    function keisan1() {
+    let shinchou = parseInt(prompt('身長を入力してください',''));
+    let hyoujunTaijuu = (shinchou - 100) * 0.9;
+    document.getElementById("h").textContent = "標準体重は " +hyoujunTaijuu + " です";
+    }
+  </script>
+</body>
+</html>
+

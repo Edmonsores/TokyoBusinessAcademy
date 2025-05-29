@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>aisatsu</title>
+</head>
+<body>
+
+  <p>時間によって挨拶を変える &&と||を使ってやってみよう<br>
+     現在の時間が4時から10時まで「おはよう」<br>
+     11時から16時まで「こんにちは」<br>
+     17時から23時または0時から3時まで「こんばんは」<button onclick="aisatsu()">時間によってあいさつが変わります</button>
+
+     <script>
+      function aisatsu() {
+          let date = new Date();
+          let hour = date.getHours();
+  
+          alert("現在の時間は"+hour+"時です");
+      
+          if (hour >= 4 && hour <= 10) {
+              alert("おはよう");
+          } else if (hour >= 11 && hour <= 16) {
+              alert("こんにちは");
+          } else if (hour >= 17 && hour <= 23 || hour >= 0 && hour <= 3) {
+                  alert("こんばんは");
+              }
+          
+      }
+  </script>
+</body>
+</html>
+
