@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>p93</title>
+</head>
+<body>
+   <h3>2または3で割り切れない整数</h3>
+    <p>1から100の間で、2または3で割り切れない整数を求めます。</p>
+    <button onclick="show()">結果を見る</button>
+    <div id="message">ここに結果が表示されます。</div>
+    <script>
+        function show(){
+           let text = '';
+           for (let i = 1; i <= 100; i++){
+            if(i % 2 == 0 || i % 3 == 0){
+                continue;
+            }
+            text = text + i +'、';
+           }
+           document.getElementById('message').textContent=text;
+        }
+    </script>
+</body>
+</html>

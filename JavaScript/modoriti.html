@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>modoriti</title>
+  <script>
+    function checkNumber(num) {
+      if (num % 2 === 0) {
+        return "偶数";
+      } else {
+        return "奇数";
+      }
+    }
+  </script>
+</head>
+<body>
+  <p>3つのボタン</p>
+  <button onclick="let r1 = checkNumber(1); alert(r1 + 'ボタンが押された');">1番ボタン</button>
+  <button onclick="let r2 = checkNumber(2); alert(r2 + 'ボタンが押された');">2番ボタン</button>
+  <button onclick="let r3 = checkNumber(3); alert(r3 + 'ボタンが押された');">3番ボタン</button>
+</body>
+</html>

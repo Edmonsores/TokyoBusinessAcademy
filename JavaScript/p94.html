@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>p94</title>
+</head>
+<body>
+    <h3>整数の合計</h3>
+    <p>1, 2, 3, ・・・の合計が<br>200以上になる瞬間は？</p>
+    <button onclick="show()">結果を見る</button>
+    <script>
+        function show(){
+           let answer = 0;
+           let i = 0;
+           while (answer < 200){
+            i++;
+            answer = answer+i;
+           }
+           alert('1から'+i+'まで合計すると'+answer+'になります。');
+        }
+    </script>
+</body>
+</html>

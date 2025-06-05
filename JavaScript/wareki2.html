@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>和暦変換</title>
+  <script>
+    function convertToSeireki() {
+      let era = prompt("meiji, taisyo, syowa, heisei, reiwa?");
+      let year = prompt("西暦何年?");
+      let y = parseInt(year);
+      let seireki;
+      let eraName;
+
+      switch (era) {
+        case "meiji":
+          seireki = y - 1868 + 1;
+          eraName = "meiji";
+          break;
+        case "taisyo":
+          seireki = y - 1912 + 1;
+          eraName = "taisyo";
+          break;
+        case "syowa":
+          seireki = y - 1926 + 1;
+          eraName = "syowa";
+          break;
+        case "heisei":
+          seireki = y - 1989 + 1;
+          eraName = "heisei";
+          break;
+        case "reiwa":
+          seireki = y - 2019 + 1;
+          eraName = "reiwa";
+          break;
+        default:
+      }
+
+      alert(`${y}年は西暦${eraName}${seireki}年です`);
+    }
+  </script>
+</head>
+<body>
+  <button onclick="convertToSeireki()">和暦をローマ字で入力した後、西暦を入力してください</button>
+  <p>1868年から1911年まで明治<br>
+     1912年から1925年まで大正<br>
+     1926年から1988年まで昭和<br>
+     1989年から2019年まで平成<br>
+     それ以降は令和
+  </p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>omoro</title>
+</head>
+<body>
+    <p>①20回ループして数を表示する
+    <br>②3の倍数（3で割った余りが0なら3の倍数）の時だけ「あほ」と表示してcontinue（数字は表示しない
+    <br>③あほが5回以上なったらbreakして
+    <br>④最後におもろー<br>
+    <button onclick="show()">結果を見る</button></p>
+    <div id="message">ここに結果が表示されます。</div>
+    <script>
+        function show() {
+            let text = '';
+            let count = 0;
+
+            for (let i = 1; i <= 20; i++) {
+                if (i % 3 == 0) {
+                    text += 'あほ、';
+                    count++;
+                    if (count >= 5) {
+                        break;
+                    }
+                    continue;
+                }
+                text += i + '、';
+            }
+            text += 'おもろー';
+            document.getElementById('message').textContent = text;
+        }
+    </script>
+</body>
+</html>

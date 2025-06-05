@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Mokuhyou</title>
+</head>
+<body>
+  <script>
+    let a = prompt("日給");
+    let targetAmout = prompt("目標");
+
+    a = parseInt(a);
+    targetAmout = parseInt(targetAmout);
+
+    let kei = 0;
+    let day = 0;
+
+    while (kei < targetAmout) {
+      kei = kei + a;
+      day++;
+    }
+
+    alert("あと" + day + "日働け");
+  </script>
+</body>
+</html>
+

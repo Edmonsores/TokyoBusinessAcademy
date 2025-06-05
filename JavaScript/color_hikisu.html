@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>スタイルの変更（引数使用）</title>
+<script>
+    function changeTextColor(tcolor) {
+        document.getElementById('abc').style.color = tcolor;
+    }
+
+    function changeBackgroundColor(bgcolor) {
+        document.getElementById('abc').style.backgroundColor = bgcolor;
+    }
+</script>
+</head>
+<body id="abc">
+    <h1>文字色の変更</h1>
+    <p>以下のボタンをクリックするとホームページの文字色を変更できます</p>
+    <button onclick="changeTextColor('red')">赤色</button>
+    <button onclick="changeTextColor('green')">緑色</button>
+    <button onclick="changeTextColor('blue')">青色</button>
+    <button onclick="changeTextColor('orange')">オレンジ</button>
+    <button onclick="changeTextColor('black')">黒色</button>
+    <button onclick="changeTextColor('white')">白色</button>
+
+    <h1>背景色の変更</h1>
+    <p>以下のボタンをクリックするとホームページの背景色を変更できます</p>
+    <button onclick="changeBackgroundColor('red')">赤色</button>
+    <button onclick="changeBackgroundColor('green')">緑色</button>
+    <button onclick="changeBackgroundColor('blue')">青色</button>
+    <button onclick="changeBackgroundColor('orange')">オレンジ</button>
+    <button onclick="changeBackgroundColor('black')">黒色</button>
+    <button onclick="changeBackgroundColor('white')">白色</button>
+
+    <p>
+    <button onclick="
+        changeBackgroundColor('white');
+        changeTextColor('black');
+    ">初期化</button>
+    </p>
+</body>
+</html>
