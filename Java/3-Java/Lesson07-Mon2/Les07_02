@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Les07_02 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        SalesDepartment[] stores = new SalesDepartment[3];
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println((i + 1) + "店舗目の情報を入力してください：");
+
+            System.out.print("売り場ID: ");
+            String id = scanner.nextLine();
+
+            System.out.print("名称: ");
+            String name = scanner.nextLine();
+
+            System.out.print("目標額: ");
+            int target = Integer.parseInt(scanner.nextLine());
+
+            System.out.print("商品単価: ");
+            int unitPrice = Integer.parseInt(scanner.nextLine());
+
+            System.out.print("来客数: ");
+            int customerCount = Integer.parseInt(scanner.nextLine());
+
+            System.out.println();
+
+            stores[i] = new SalesDepartment(id, name, target, unitPrice, customerCount);
+        }
+
+        System.out.println("=== 結果表示 ===");
+        for (SalesDepartment store : stores) {
+            store.displayInfo();
+        }
+
+        scanner.close();
+    }
+}
