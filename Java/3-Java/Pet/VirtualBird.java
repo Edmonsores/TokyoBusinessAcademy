@@ -1,3 +1,4 @@
+
 public class VirtualBird extends VirtualPet { 
     VirtualBird(String name, int maxEnergy, int energy) {
         super(name, maxEnergy, energy);
