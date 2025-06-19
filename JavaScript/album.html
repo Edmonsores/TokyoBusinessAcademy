@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ALBUM</title>
+  <style>
+    #album {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+      width: 600px;
+      background-color: black;
+      border: solid 5px black;
+    }
+    img {
+      width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+  <h2>PHOTO ALBUM</h2>
+  <div id="album"></div>
+  <div>
+    <button onclick="blackWhite()">白黒に</button>
+    <button onclick="color()">カラーに</button>
+  </div>
+  <script>
+    let album = document.getElementById("album");
+    for (let i = 1; i <= 6; i++) {
+      album.insertAdjacentHTML('beforeend', '<img id="img' + i + '" src="images/nature0' + i + '.jpg">');
+    }
+    function blackWhite() {
+      for (let i = 1; i <= 6; i++) {
+        document.getElementById('img' + i).setAttribute('src', 'images/m_nature0' + i + '.jpg');
+      }
+    }
+    function color() {
+      for (let i = 1; i <= 6; i++) {
+        document.getElementById('img' + i).setAttribute('src', 'images/nature0' + i + '.jpg');
+      }
+    }
+  </script>
+
+</body>
+</html>

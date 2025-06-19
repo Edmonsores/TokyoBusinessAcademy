@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Head</title>
+</head>
+<body>
+  <div id="s"></div>
+  <script>
+    let s = document.getElementById("s");
+    for (let i = 1; i <= 6; i++) {
+      s.insertAdjacentHTML('beforeend', '<h' + i + '>h' + i + 'の文字</h' + i + '>');
+    }
+  </script>
+</body>
+</html>

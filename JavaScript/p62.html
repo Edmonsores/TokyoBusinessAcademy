@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>要素の追加と削除</title>
+</head>
+<body>
+    <h1>写真の一覧</h1>
+    <p>以下のボタンをクリックすると、写真が一覧表示されます。</p>
+    <div id="images">
+        <button onclick="showPhotos()">写真を表示</button>
+    </div>
+
+    <script>
+        function showPhotos() {
+            let photoBox = document.getElementById('images');
+            for (let i = 8; i >= 1; i--) {
+                photoBox.insertAdjacentHTML('afterbegin', '<img src="images/photo_' + i + '.jpg">');
+            }
+
+            document.getElementById('show_button').remove();
+        }
+    </script>
+</body>
+</html>

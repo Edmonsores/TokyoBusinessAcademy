@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>繰り返し処理</title>
+  <style>
+    table{
+        border-collapse: collapse;
+    }
+    td, th{
+        border: solid 1px #000000;
+        width: 40px;
+        padding: 5px;
+        text-align: center;
+    }
+    th{
+        background-color: #99cccc;
+    }
+  </style>
+</head>
+<body onload="createTable()">
+    <h1>九九の表</h1>
+    <table>
+        <thead id="t_head"></thead>
+        <tbody id="t_body"></tbody>
+    </table>
+    <script>
+        function createTable(){
+            let row ='<tr><th></th>';
+            for (let j = 1; j <= 9; j++){
+                row = row + '<th>' + j + '</th>';
+            }
+            row = row + '</tr>';
+            document.getElementById('t_head').insertAdjacentHTML('beforeend',row);
+            for (let i = 1; i <= 9; i++){
+                let row = '<tr><th>'+i+ '</th>';
+                for (let j = 1; j <= 9; j++){
+                    row = row + '<td>'+i*j+ '</td>';
+                }
+                row = row + '</tr>';
+                document.getElementById('t_body').insertAdjacentHTML('beforeend',row);
+            }
+        }
+    </script>
+</body>
+</html>
+

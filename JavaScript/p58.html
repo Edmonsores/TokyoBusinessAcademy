@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>要素の追加</title>
+  <style>
+    #continue{
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <h3>会場と日程</h3>
+    <ul id="schedule">
+        <li>札幌（9/5）</li>
+        <li>仙台（9/8）</li>
+        <li>東京（9/11）</li>
+    </ul>
+        <span id="continue" onclick="showList()">続きを表示</span>
+        <p>ぜひ、ご参加ください。</p>
+        <script>
+            let list = ['横浜（9/12）','大阪（9/18）','広島（9/20）','福岡（9/23）'];
+            function showList(){
+                let ulBox = document.getElementById('schedule');
+                ulBox.insertAdjacentHTML('beforeend','<li>'+list[0]+'</li>');
+                ulBox.insertAdjacentHTML('beforeend','<li>'+list[1]+'</li>');
+                ulBox.insertAdjacentHTML('beforeend','<li>'+list[2]+'</li>');
+                ulBox.insertAdjacentHTML('beforeend','<li>'+list[3]+'</li>');
+            }
+        </script>
+</body>
+</html>
+

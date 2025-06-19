@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>属性値の変更例</title>
+    <style>
+        #photo_frame {
+            background-color: #333333;
+            text-align: center;
+            line-height: 1.0;
+            padding: 20px 0px 0px;
+        }
+
+        #photo_list {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            background-color: #333333; 
+        }
+        #photo_list img {
+            opacity: 0.4;
+            border: solid 2px #333333;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PHOTO ALBUM</h1>
+    <div id="photo_frame">
+        <img id="big_img" src="images/big_pic01.jpg">
+    </div>
+    <div id="photo_list">
+        <img src="images/pic01.jpg" onclick="mClick(this)" onmouseover="mOver(this)" onmouseout="mOut(this)">
+        <img src="images/pic02.jpg" onclick="mClick(this)" onmouseover="mOver(this)" onmouseout="mOut(this)">
+        <img src="images/pic03.jpg" onclick="mClick(this)" onmouseover="mOver(this)" onmouseout="mOut(this)">
+        <img src="images/pic04.jpg" onclick="mClick(this)" onmouseover="mOver(this)" onmouseout="mOut(this)">
+        <img src="images/pic05.jpg" onclick="mClick(this)" onmouseover="mOver(this)" onmouseout="mOut(this)">
+        <img src="images/pic06.jpg" onclick="mClick(this)" onmouseover="mOver(this)" onmouseout="mOut(this)">
+        <img src="images/pic07.jpg" onclick="mClick(this)" onmouseover="mOver(this)" onmouseout="mOut(this)">
+    </div>
+
+    <script>
+       function mClick(obj) {
+            let fileName = obj.getAttribute('src');
+            //fileName = 'big_'+ fileName;
+            fileName = fileName.replace('pic', 'big_pic');
+            document.getElementById('big_img').setAttribute('src', fileName);
+        }
+
+        function mOver(obj) {
+            obj.style.opacity = 1.0;
+            obj.style.border = 'solid 2px #FF9933';
+        }
+
+        function mOut(obj) {
+            obj.style.opacity = 0.4;
+            obj.style.border = 'solid 2px #333333';
+        }
+    </script>
+</body>
+</html>
