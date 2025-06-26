@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Bear</title>
+</head>
+<body>
+    <div class="container">
+        <form id="orderForm">
+            <div>
+                <div>【お住まいの地域】</div>
+                <select id="deliveryArea" name="deliveryArea">
+                    <option value="">地域を選択してください</option>
+                    <option value="chubu_hokuriku">中部・北陸</option>
+                    <option value="kanto_tohoku">関東・東北</option>
+                    <option value="kansai_hokkaido">関西・北海道</option>
+                    <option value="chugoku_shikoku_kyushu">中国・四国・九州</option>
+                </select>
+            </div>
+            <div>
+                <p>【ご注文】</p>
+                <p>テディベア 1体10000円<br>
+                <input type="radio" id="qty1" class="bearQty" value="1" checked> <label for="qty1">1体</label>
+                <input type="radio" id="qty2" class="bearQty" value="2"> <label for="qty2">2体</label>
+                <input type="radio" id="qty3" class="bearQty" value="3"> <label for="qty3">3体</label>
+                </p> 
+            </div>
+            <div>
+                <p>【オプション】</p>
+                <p>1つ100円<br>
+                <input type="checkbox" id="giftWrapping" value="100"> <label for="giftWrapping">プレゼント用包装</label>
+                <input type="checkbox" id="giftRibbon" value="100"> <label for="giftRibbon">プレゼント用リボン</label>
+                </p>
+            </div>
+            
+            <div>
+                <p>【ご注文内容】</p>
+                
+                <input type="text" id="quantity" size="3"> 体
+                <input type="text" id="BearPrice" size="8"> 円
+                <br>
+
+                オプション <input type="text" id="optionPrice" size="8"> 円
+                <br>
+
+                送料 <input type="text" id="shippingArea" size="12">
+                <input type="text" id="shippingFee" size="5" > 円
+                
+                &nbsp;&nbsp;
+                
+                合計 <input type="text" id="totalPrice" size="8"> 円
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let form = document.getElementById('orderForm');
+        form.addEventListener('input', calculateOrder);
+        calculateOrder();
+    
+        function calculateOrder() {
+            let bearPrice = 0;
+            let optionPrice = 0;
+            let shippingFee = 0;
+            let total = 0;
+            const BEAR_UNIT_PRICE = 10000;
+    
+            // 1. Teddy Bear Quantity
+            let bearQtyRadios = document.querySelectorAll('.bearQty');
+            let selectedQty = 0;
+            for (let i = 0; i < bearQtyRadios.length; i++) {
+                if (bearQtyRadios[i].checked) {
+                    selectedQty = parseInt(bearQtyRadios[i].value);
+                    break;
+                }
+            }
+            bearPrice = selectedQty * BEAR_UNIT_PRICE;
+            document.getElementById('quantity').value = selectedQty;
+            document.getElementById('BearPrice').value = bearPrice;
+    
+            // 2. Options (Gift Wrapping & Ribbon)
+            let giftWrapping = document.getElementById('giftWrapping');
+            let giftRibbon = document.getElementById('giftRibbon');
+            if (giftWrapping.checked) {
+                optionPrice += parseInt(giftWrapping.value);
+            }
+            if (giftRibbon.checked) {
+                optionPrice += parseInt(giftRibbon.value);
+            }
+            document.getElementById('optionPrice').value = optionPrice;
+    
+            // 3. Shipping Fee
+            let deliveryArea = document.getElementById('deliveryArea');
+            let selectedAreaValue = deliveryArea.value;
+            let shippingAreaDisplay = document.getElementById('shippingArea');
+            switch (selectedAreaValue) {
+                case 'chubu_hokuriku':
+                    shippingFee = 800;
+                    shippingAreaDisplay.value = '中部・北陸';
+                    break;
+                case 'kanto_tohoku':
+                    shippingFee = 1000;
+                    shippingAreaDisplay.value = '関東・東北';
+                    break;
+                case 'kansai_hokkaido':
+                    shippingFee = 1200;
+                    shippingAreaDisplay.value = '関西・北海道';
+                    break;
+                case 'chugoku_shikoku_kyushu':
+                    shippingFee = 1500;
+                    shippingAreaDisplay.value = '中国・四国・九州';
+                    break;
+                default:
+                    shippingFee = 0;
+                    shippingAreaDisplay.value = '地域を選択';
+                    break;
+            }
+            document.getElementById('shippingFee').value = shippingFee;
+    
+            // 4. Total Calculation
+            total = bearPrice + optionPrice + shippingFee;
+            document.getElementById('totalPrice').value = total;
+        }
+    </script>
+    
+
+</body>
+</html>
