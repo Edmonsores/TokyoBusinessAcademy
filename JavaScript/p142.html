@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>店舗一覧</title>
+</head>
+<body>
+    <h1>店舗一覧</h1>
+    <div>地域を選択してください
+        <select id="area">
+            <option value="tokyo">東京</option>
+            <option value="kanagawa">神奈川</option>
+            <option value="saitama">埼玉</option>
+            <option value="chiba">千葉</option>
+        </select>
+    </div>
+    <ul id="shop_ul">
+        <li>池袋店</li>
+        <li>渋谷店</li>
+        <li>新宿店</li>
+        <li>中野店</li>
+        <li>調布店</li>
+    </ul>
+    <script>
+        let tokyo = ['池袋店', '渋谷店', '新宿店', '中野店', '調布店'];
+        let kanagawa = ['横浜店', '川崎店', '藤沢店', '平塚店'];
+        let saitama = ['川越店', '川口店', '大宮店'];
+        let chiba = ['千葉店', '柏店', '木更津店'];
+        document.getElementById('area').addEventListener('change', areaChange);
+        function areaChange() {
+            let shoplist = document.getElementById('shop_ul');
+            shoplist.innerHTML = '';
+            let shop = [];
+            let selectArea = document.getElementById('area').value;
+            switch (selectArea) {
+                case 'tokyo':
+                    shop = tokyo;
+                    break;
+                case 'kanagawa':
+                    shop = kanagawa;
+                    break;
+                case 'saitama':
+                    shop = saitama;
+                    break;
+                case 'chiba':
+                    shop = chiba;
+                    break;
+            }
+            for (let i = 0; i < shop.length; i++) {
+                shoplist.insertAdjacentHTML('beforeend', '<li>' + shop[i] + '</li>');
+            }
+        }
+    </script>
+</body>
+</html>

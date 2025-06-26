@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Yama</title>
+</head>
+<body>
+    <h3>問題</h3>
+    <p>日本で一番高い山は？</p>
+    <input id="ans_text" type="text" size="15">
+    <button id="btn">確認</button>
+    <script>
+        document.getElementById('btn').addEventListener('click',answerCheck);
+        function answerCheck(){
+            let answer = document.getElementById('ans_text').value;
+            if (answer == '富士山'){
+                alert('正解！');
+            } else {
+                alert('間違い！');
+            }
+        }
+    </script>
+</body>
+</html>

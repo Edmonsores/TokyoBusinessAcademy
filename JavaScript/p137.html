@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>体育館</title>
+</head>
+<body>
+    <h1>体育館の利用料金</h1>
+    <p>基本使用料（2時間） 2000円</p>
+    <form id="price_form">
+        <label><input type="checkbox" id="c1">夜間照明（1000円）</label><br>
+        <label><input type="checkbox" id="c2">ネット（300円）</label><br>
+        <label><input type="checkbox" id="c3">ボール✕10個（400円）</label>
+    </form>
+    <p>合計金額 <span id="total">2000円</span></p>
+
+    <script>
+        document.getElementById('price_form').addEventListener('change', checkSum);
+        function checkSum() {
+            let price = 2000;
+            if (document.getElementById('c1').checked == true) {
+                price = price + 1000;
+            }
+            if (document.getElementById('c2').checked == true) {
+                price = price + 300;
+            }
+            if (document.getElementById('c3').checked == true) {
+                price = price + 400;
+            }
+            document.getElementById('total').textContent = price + '円';
+        }
+    </script>
+</body>
+</html>

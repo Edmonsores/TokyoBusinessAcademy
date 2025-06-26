@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>スタイルの変更</title>
+<style>
+body {
+  width: 650px;
+  margin: 0px auto;
+  background-color: #FFFFEE;
+  line-height: 2.0;
+  text-align: justify;
+}
+</style>
+</head>
+<body>
+<h1>文字サイズの変更</h1>
+<button id="sizeS">文字サイズ: 小</button>
+<button id="sizeM">文字サイズ: 中</button>
+<button id="sizeL">文字サイズ: 大</button>
+
+<div id="main">
+<p>彼は老いていた。小さな船でメキシコ湾流に漕ぎ出し、･･････ように見えた。</p>
+<p>老人は細くやつれ、首筋には深い皺が刻まれていた。･･････古い傷痕だった。</p>
+</div>
+
+<script>
+document.getElementById('sizeS').addEventListener('click',fontSizeS);
+document.getElementById('sizeM').addEventListener('click',fontSizeM);
+document.getElementById('sizeL').addEventListener('click',fontSizeL);
+let main = document.getElementById('main');
+function fontSizeS() {
+  main.style.fontSize = '14px';
+}
+function fontSizeM() {
+  main.style.fontSize = '16px';
+}
+function fontSizeL() {
+  main.style.fontSize = '20px';
+}
+</script>
+</body>
+</html>
