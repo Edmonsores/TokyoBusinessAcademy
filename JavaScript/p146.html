@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>フォームの操作</title>
+</head>
+<body>
+  <h1>タヒチの写真</h1>
+  <p>写真を選択してください。</p>
+  <select id="choice">
+    <option value="images/big_pic01.jpg">ホテルの室内1</option>
+    <option value="images/big_pic02.jpg">海へ降りる階段</option>
+    <option value="images/big_pic03.jpg">朝食</option>
+    <option value="images/big_pic04.jpg">ホテルの室内2</option>
+    <option value="images/big_pic05.jpg">夕暮れの風景</option>
+    <option value="images/big_pic06.jpg">ビーチリゾート</option>
+    <option value="images/big_pic07.jpg">海岸と船</option>
+  </select>
+  <p>
+    <img id="photo" src="images/big_pic01.jpg">
+  </p>
+  <script>
+    document.getElementById('choice').addEventListener('change', changeImg);
+    
+    function changeImg() {
+      let fileName = document.getElementById('choice').value;
+      document.getElementById('photo').setAttribute('src', fileName);
+      
+      // Remove old names
+      let oldFileName = document.getElementById('file_name');
+      if (oldFileName) {
+        oldFileName.remove();
+      }
+      
+      // Insert new h2 after the image
+      document.getElementById('photo').insertAdjacentHTML('afterend', '<h2 id="file_name">' + fileName + '</h2>');
+    }
+  </script>
+  
+</body>
+</html>

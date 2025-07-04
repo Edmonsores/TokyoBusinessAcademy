@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>p114event</title>
+  <style>
+    div {
+      width: 500px;
+      border: solid 3px #666666;
+      padding: 10px;
+      margin: 25px 0px;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTMLの表示</h1>
+  <p>ボックス内の表示されている部分のHTMLを表示します。</p>
+  <div id="box">
+    <h3>人口800万人以上の都道府県</h3>
+    <ul>
+      <li>東京都</li>
+      <li>神奈川県</li>
+      <li>大阪府</li>
+    </ul>
+  </div>
+  <button id="btn">HTMLを表示</button>
+  <div id="show_html">ここにHTMLが表示されます。</div>
+
+  <script>
+     document.getElementById('btn').addEventListener('click', function() {
+      let html = document.getElementById('box').innerHTML;
+      document.getElementById('show_html').textContent = html;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>現在時刻</title>
+</head>
+<style>
+    #now_time {
+      color: red;
+      font-size: 20px;
+    }
+  </style>
+<body>
+  <h1>現在時刻</h1>
+  <p>ボタンをクリックすると、現在の時刻が表示されます。</p>
+  <button id="btn">時刻を更新</button>
+  <p>現在の時刻は <span id="now_time"></span> です。</p>
+  <script>
+    window.addEventListener('load', changeTime);
+    document.getElementById('btn').addEventListener('click', changeTime);
+    function changeTime() {
+      let now = new Date();
+      let hh = now.getHours();
+      let mm = now.getMinutes();
+      let ss = now.getSeconds();
+      let text = hh + '時' + mm + '分' + ss + '秒';
+      document.getElementById('now_time').textContent = text;
+    }
+  </script>
+</body>
+</html>

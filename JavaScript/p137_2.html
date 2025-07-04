@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>体育館の利用料金</title>
+<style>
+    body{
+        padding: 0px 15px;
+    }
+    h1{
+        border-bottom: solid 2px #000000;
+    }
+    p{
+        font-size: 20px;
+    }
+    #total{
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <h1>体育館の利用料金</h1>
+    <p>基本使用料（2時間） 2000円</p>
+    <form id="price_form" method="post" action="index.php">
+        <label><input type="checkbox" id="c1">夜間照明（1000円）</label><br>
+        <label><input type="checkbox" id="c2">ネット（300円）</label><br>
+        <label><input type="checkbox" id="c3">ボール✕10個（400円）</label>
+        <p>合計金額 <span id="total">2000円</span></p>
+        <input type="submit" value="申込み">
+        <button type="button" id="cancel_btn">キャンセル</button>
+    </form>
+    <script>
+        document.getElementById('price_form').addEventListener('submit', function(event){
+            if(confirm("この内容で申込みが決定します。よろしいですか？")){
+                event.stopPropagation();
+            }else{
+                alert('キャンセルされました');
+                event.preventDefault();
+            }
+        });
+        document.getElementById('price_form').addEventListener('change', checkSum);
+        function checkSum() {
+            let price = 2000;
+            if (document.getElementById('c1').checked) {
+                price += 1000;
+            }
+            if (document.getElementById('c2').checked) {
+                price += 300;
+            }
+            if (document.getElementById('c3').checked) {
+                price += 400;
+            }
+            document.getElementById('total').textContent = price + '円';
+        }
+        document.getElementById('cancel_btn').addEventListener('click', function(){
+            document.getElementById('c1').checked = false;
+            document.getElementById('c2').checked = false;
+            document.getElementById('c3').checked = false;
+            checkSum();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>フォームの操作</title>
+</head>
+<body>
+<h3>問題</h3>
+<p>英語のことわざで「1日1個食べると医者いらず」と言われている果物とは？</p>
+<label>答え：<input id="ans_text" type="text" size="15"></label>
+<label><input id="rad_eng" type="radio" name="lang_select" value="english" checked>英語で答える</label>
+<label><input id="rad_jpn" type="radio" name="lang_select" value="japanese">日本語で答える</label><br>
+<button id="btn">確認</button>
+
+<script>
+document.getElementById('btn').addEventListener('click', anserCheck);
+
+function anserCheck() {
+  let anser = document.getElementById('ans_text').value;
+  let english = document.getElementById('rad_eng').checked;
+  let japanese = document.getElementById('rad_jpn').checked;
+
+  if (english) {
+    if (anser === 'apple' || anser === 'Apple' || anser === 'APPLE') {
+      alert('正解！');
+    } else if (anser === 'りんご' || anser === 'リンゴ' || anser === '林檎') {
+      alert('日本語ではなく英語で！');
+    } else {
+      alert('間違い！');
+    }
+  } else if (japanese) {
+    if (anser === 'りんご' || anser === 'リンゴ' || anser === '林檎') {
+      alert('正解！');
+    } else if (anser === 'apple' || anser === 'Apple' || anser === 'APPLE') {
+      alert('英語ではなく日本語で！');
+    } else {
+      alert('間違い！');
+    }
+  }
+}
+</script>
+</body>
+</html>

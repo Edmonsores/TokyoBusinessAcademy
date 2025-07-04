@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>スタイルの変更</title>
+  <style>
+    body {
+      width: 668px;
+      margin: 0 auto;
+    }
+    #photo_list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 10px;
+      background-color: #333333;
+    }
+    #photo_list img {
+      opacity: 0.4;
+      border: solid 2px #333333;
+      padding: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>PHOTO ALBUM</h1>
+  <div id="photo_list">
+    <img src="images/pic01.jpg">
+    <img src="images/pic02.jpg">
+    <img src="images/pic03.jpg">
+    <img src="images/pic04.jpg">
+    <img src="images/pic05.jpg">
+    <img src="images/pic06.jpg">
+    <img src="images/pic07.jpg">
+  </div>
+
+  <script>
+    let images = document.querySelectorAll('#photo_list img');
+
+    // Mouseover
+    function mOver(obj) {
+      obj.style.opacity = 1.0;
+      obj.style.border = 'solid 2px #FF9933';
+    }
+
+    // Mouseout
+    function mOut(obj) {
+      obj.style.opacity = 0.4;
+      obj.style.border = 'solid 2px #333333';
+    }
+
+    // Event listeners using for loop
+    for (let i = 0; i < images.length; i++) {
+      images[i].addEventListener('mouseover', function() {
+        mOver(this);
+      });
+      images[i].addEventListener('mouseout', function() {
+        mOut(this);
+      });
+    }
+  </script>
+</body>
+</html>
