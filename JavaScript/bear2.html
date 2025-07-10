@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Bear2</title>
+</head>
+<body>
+    <div class="container">
+        <form id="orderForm" method="post" action="index.php">
+            <div>
+                <div>【お名前】</div>
+                <input type="text" id="customerName" name="customerName" size="30">
+            </div>
+            <div>
+                <div>【ご住所】</div>
+                <input type="text" id="customerAddress" name="customerAddress" size="40">
+            </div>
+
+            <div>
+                <div>【お住まいの地域】</div>
+                <select id="deliveryArea" name="deliveryArea">
+                    <option value="">地域を選択してください</option>
+                    <option value="chubu_hokuriku">中部・北陸</option>
+                    <option value="kanto_tohoku">関東・東北</option>
+                    <option value="kansai_hokkaido">関西・北海道</option>
+                    <option value="chugoku_shikoku_kyushu">中国・四国・九州</option>
+                </select>
+            </div>
+
+            <div>
+                <p>【ご注文】</p>
+                <p>テディベア 1体10000円<br>
+                    <input type="radio" id="qty1" class="bearQty" name="bearQty" value="1" checked> <label for="qty1">1体</label>
+                    <input type="radio" id="qty2" class="bearQty" name="bearQty" value="2"> <label for="qty2">2体</label>
+                    <input type="radio" id="qty3" class="bearQty" name="bearQty" value="3"> <label for="qty3">3体</label>
+                </p>
+            </div>
+
+            <div>
+                <p>【オプション】</p>
+                <p>1つ100円<br>
+                    <input type="checkbox" id="giftWrapping" name="giftWrapping" value="100"> <label for="giftWrapping">プレゼント用包装</label>
+                    <input type="checkbox" id="giftRibbon" name="giftRibbon" value="100"> <label for="giftRibbon">プレゼント用リボン</label>
+                </p>
+            </div>
+
+            <div>
+                <p>【ご注文内容】</p>
+                <input type="text" id="quantity" size="3" readonly> 体
+                <input type="text" id="BearPrice" size="8" readonly> 円
+                <br>
+                オプション <input type="text" id="optionPrice" size="8" readonly> 円
+                <br>
+                送料 <input type="text" id="shippingArea" size="12" readonly>
+                <input type="text" id="shippingFee" size="5" readonly> 円
+                &nbsp;&nbsp;
+                合計 <input type="text" id="totalPrice" size="8" readonly> 円
+            </div>
+
+            <div class="buttons">
+                <button type="submit" id="submitOrder">お買い物かごに入れる</button>
+                <button type="reset" id="resetForm">キャンセル</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let form = document.getElementById('orderForm');
+
+        // Atualiza valores sempre que houver mudança
+        form.addEventListener('input', calculateOrder);
+        calculateOrder();
+    
+        function calculateOrder() {
+            let BEAR_UNIT_PRICE = 10000;
+            let bearPrice = 0;
+            let optionPrice = 0;
+            let shippingFee = 0;
+            let total = 0;
+    
+            // Quantidade de ursos
+            let bearQtyRadios = document.querySelectorAll('.bearQty');
+            let selectedQty = 0;
+            for (let i = 0; i < bearQtyRadios.length; i++) {
+                if (bearQtyRadios[i].checked) {
+                    selectedQty = parseInt(bearQtyRadios[i].value);
+                    break;
+                }
+            }
+            bearPrice = selectedQty * BEAR_UNIT_PRICE;
+            document.getElementById('quantity').value = selectedQty;
+            document.getElementById('BearPrice').value = bearPrice;
+    
+            // Opções
+            if (document.getElementById('giftWrapping').checked) optionPrice += 100;
+            if (document.getElementById('giftRibbon').checked) optionPrice += 100;
+            document.getElementById('optionPrice').value = optionPrice;
+    
+            // Frete
+            let deliveryArea = document.getElementById('deliveryArea').value;
+            let shippingAreaDisplay = document.getElementById('shippingArea');
+            switch (deliveryArea) {
+                case 'chubu_hokuriku':
+                    shippingFee = 800;
+                    shippingAreaDisplay.value = '中部・北陸';
+                    break;
+                case 'kanto_tohoku':
+                    shippingFee = 1000;
+                    shippingAreaDisplay.value = '関東・東北';
+                    break;
+                case 'kansai_hokkaido':
+                    shippingFee = 1200;
+                    shippingAreaDisplay.value = '関西・北海道';
+                    break;
+                case 'chugoku_shikoku_kyushu':
+                    shippingFee = 1500;
+                    shippingAreaDisplay.value = '中国・四国・九州';
+                    break;
+                default:
+                    shippingFee = 0;
+                    shippingAreaDisplay.value = '地域を選択';
+                    break;
+            }
+            document.getElementById('shippingFee').value = shippingFee;
+    
+            // Total
+            total = bearPrice + optionPrice + shippingFee;
+            document.getElementById('totalPrice').value = total;
+        }
+    
+        // Validação antes de enviar
+        form.addEventListener('submit', function(event) {
+            let customerName = document.getElementById('customerName').value; // fixed here
+            let customerAddress = document.getElementById('customerAddress').value; // fixed here
+    
+            if (customerName === '') {
+                alert('お名前を入力してください');
+                event.preventDefault();
+                return;
+            }
+            if (customerAddress === '') {
+                alert('ご住所を入力してください');
+                event.preventDefault();
+                return;
+            }
+    
+            let confirmMessage = 'この内容でお買い物かごに送りますよろしいですか？';
+            if (!confirm(confirmMessage)) {
+                event.preventDefault();
+                return;
+            }
+        });
+
+        // Evento reset para atualizar valores
+        form.addEventListener('reset', function() {
+            calculateOrder();
+        });
+    </script>    
+</body>
+</html>
