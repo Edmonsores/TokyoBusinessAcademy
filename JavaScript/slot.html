@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Slot Machine</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: sans-serif;
+        }
+        .slot-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .slot {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #000;
+            margin: 0 5px;
+            font-size: 2em;
+            line-height: 60px;
+            font-weight: bold;
+        }
+        button {
+            margin: 5px;
+            padding: 5px 10px;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="slot-container">
+        <div class="slot" id="slot1">0</div>
+        <div class="slot" id="slot2">0</div>
+        <div class="slot" id="slot3">0</div>
+    </div>
+    <div>
+        <button id="stop1">Stop</button>
+        <button id="stop2" disabled>Stop</button>
+        <button id="stop3" disabled>Stop</button>
+    </div>
+    <div class="result" id="result">あたりかはずれか</div>
+
+    <script>
+        let s1 = document.getElementById("slot1");
+        let s2 = document.getElementById("slot2");
+        let s3 = document.getElementById("slot3");
+        let btn1 = document.getElementById("stop1");
+        let btn2 = document.getElementById("stop2");
+        let btn3 = document.getElementById("stop3");
+        let result = document.getElementById("result");
+
+        let t1 = setInterval(() => { s1.textContent = Math.floor(Math.random() * 4); }, 1000);
+        let t2 = setInterval(() => { s2.textContent = Math.floor(Math.random() * 4); }, 1000);
+        let t3 = setInterval(() => { s3.textContent = Math.floor(Math.random() * 4); }, 1000);
+
+        let stop1 = false, stop2 = false, stop3 = false;
+
+        btn1.addEventListener("click", () => {
+            clearInterval(t1); // Stop slot 1
+            btn1.disabled = true; // Disable button 1
+            btn2.disabled = false; // Able button 2
+            stop1 = true; // Mark as stopped
+            check();
+        });
+
+        btn2.addEventListener("click", () => {
+            clearInterval(t2);
+            btn2.disabled = true;
+            btn3.disabled = false;
+            stop2 = true;
+            check();
+        });
+
+        btn3.addEventListener("click", () => {
+            clearInterval(t3);
+            btn3.disabled = true;
+            stop3 = true;
+            check();
+        });
+
+        function check() {
+            if (stop1 && stop2 && stop3) {
+                if (s1.textContent === s2.textContent && s2.textContent === s3.textContent) {
+                    result.textContent = "あたり";
+                    result.style.color = "green";
+                } else {
+                    result.textContent = "はずれ";
+                    result.style.color = "red";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
