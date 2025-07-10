@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>p170 p171 時間差処理</title>
+</head>
+<body>
+    <h1>PHOTO ALBUM</h1>
+    <div id="photo_frame">
+        <img id="photo" src="images/big_pic01.jpg">
+    </div>
+    <p>この画像は5秒間隔で自動的に切り替わります。</p>
+    <button id="btn">スライドショーを停止</button>
+
+    <script>
+        let n = 1;
+        let slideshow = setInterval(changeImg, 5000);
+
+        // 画像の変更
+        function changeImg() {
+            n++;
+            if (n > 7) {
+                n = 1;
+            }
+            let newFile = 'images/big_pic0' + n + '.jpg';
+            document.getElementById('photo').setAttribute('src', newFile);
+        }
+
+        // 繰り返し処理の停止
+        document.getElementById('btn').addEventListener('click', stopImg);
+
+        function stopImg() {
+            clearInterval(slideshow);
+        }
+    </script>
+</body>
+</html>

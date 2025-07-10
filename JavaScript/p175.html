@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>時間差処理</title>
+  <style>
+    #time {
+      font-size: 32px;
+      color: #FFFFFF;
+      background-color: #333333;
+      padding: 0px 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>リアルタイム時計</h1>
+  <p>現在の時刻は <span id="time"></span> です。</p>
+
+  <script>
+    setInterval(nowTime, 1000);
+
+    function nowTime() {
+      let now = new Date();
+      let hh = now.getHours();
+      let mm = now.getMinutes();
+      let ss = now.getSeconds();
+
+      if (hh < 10) {
+        hh = '0' + hh;
+      }
+      if (mm < 10) {
+        mm = '0' + mm;
+      }
+      if (ss < 10) {
+        ss = '0' + ss;
+      }
+
+      document.getElementById('time').textContent = hh + ':' + mm + ':' + ss;
+    }
+  </script>
+</body>
+</html>

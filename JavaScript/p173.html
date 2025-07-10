@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>p173 時間差処理</title>
+    <style>
+        body{
+            width: 600px;
+            margin: 0px auto;
+        }
+        #photo_frame{
+            background-color: #333333;
+            text-align: center;
+            line-height: 1.0;
+            padding: 15px 0px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PHOTO ALBUM</h1>
+    <div id="photo_frame">
+        <img id="photo" src="images/big_pic01.jpg">
+    </div>
+    <p>この画像は5秒間隔で自動的に切り替わります。</p>
+    <button id="btn">スライドショーを停止</button>
+
+    <script>
+        let n = 1;
+        let slideshow = setInterval(changeImg, 5000);
+
+        // 画像の変更
+        function changeImg() {
+            n++;
+            if (n > 7) {
+                n = 1;
+            }
+            let newFile = 'images/big_pic0' + n + '.jpg';
+            // フェードアウト (0.1~1.0秒後)
+            for (let i = 1; i <= 10; i++) {
+               setTimeout(function() {
+                 let alpha = (10 - i) / 10;
+                 document.getElementById('photo').style.opacity = alpha;
+                }, i * 100);
+            }
+
+            // 画像の変更 (1.0秒後)
+            setTimeout(function() {
+               document.getElementById('photo').setAttribute('src', newFile);
+            }, 1000);
+
+            // フェードイン (1.1~2.0秒後)
+            for (let i = 11; i <= 20; i++) {
+              setTimeout(function() {
+                let alpha = (i - 10) / 10;
+                document.getElementById('photo').style.opacity = alpha;
+              }, i * 100);
+            }
+            document.getElementById('photo').setAttribute('src', newFile);
+        }
+    </script>
+</body>
+</html>
