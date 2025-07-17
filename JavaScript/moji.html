@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>moji</title>
+</head>
+<body>
+    <form id="form1">
+        <input type="text" id="text1" size="5">
+    </form>
+
+    <script>
+        let msg = " ようこそ";
+        setInterval(scroll, 500);
+
+        function scroll() {
+            // Take the first character, move it to the end
+            msg = msg.substring(1) + msg.charAt(0);
+            document.getElementById('text1').value = msg;
+        }
+    </script>
+</body>
+</html>

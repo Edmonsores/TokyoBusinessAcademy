@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript授業プログラム</title>
+</head>
+<body>
+    <h1>ファイル名と拡張子</h1>
+    <p>画像の上にマウスを移動すると、ファイル名と拡張子が表示されます。</p>
+    <div id="photos">
+        <img src="images/streetlamp.gif">
+        <img src="images/airplane.jpg">
+        <img src="images/sunset.png">
+    </div>
+    <p>
+        フォルダ名: <span id="f"></span><br>
+        ファイル名: <span id="name"></span><br>
+        拡張子: <span id="exte"></span>
+    </p>
+
+    <script>
+        let img = document.querySelectorAll('#photos img');
+        for (let i = 0; i < img.length; i++) {
+            img[i].addEventListener('mouseover', function() {
+                mOver(this);
+            });
+            img[i].addEventListener('mouseout', mOut);
+        }
+
+        function mOver(obj) {
+            let fileName = obj.getAttribute('src');
+            // /で分割
+            let text2 = fileName.split('/');
+            let text = text2[1].split('.');
+
+            document.getElementById('f').textContent = text2[0];
+            document.getElementById('name').textContent = text[0];
+            document.getElementById('exte').textContent = text[1];
+        }
+
+        function mOut() {
+            document.getElementById('f').textContent = '';
+            document.getElementById('name').textContent = '';
+            document.getElementById('exte').textContent = '';
+        }
+    </script>
+</body>
+</html>

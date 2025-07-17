@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>itimoji.html</title>
+</head>
+<body>
+    <form id="form1">
+        <input type="text" id="text1" size="5">
+    </form>
+
+    <script>
+        let msg = "ようこそ";
+        let i = 0;
+        let s = "";
+
+        function moji() {
+            if (i < msg.length) {
+                s = s + msg.charAt(i);
+                document.getElementById('text1').value = s;
+                i++;
+            }
+        }
+
+        setInterval(moji, 500);
+    </script>
+</body>
+</html>

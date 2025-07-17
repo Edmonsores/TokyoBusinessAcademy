@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Mathオブジェクト</title>
+</head>
+<body>
+    <h1>2つのサイコロ</h1>
+    <p>ボタンをクリックすると、2つのサイコロを振ることができます。</p>
+    <p>
+        <button id="btn">サイコロを振る</button>
+    </p>
+    <p>
+        <img id="diceA" src="images/sai_1.gif">
+        <img id="diceB" src="images/sai_6.gif">
+    </p>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', rollDice);
+
+        function rollDice() {
+            let n = Math.random() * 6;
+            let m = Math.random() * 6;
+            n = Math.floor(n) + 1;
+            m = Math.floor(m) + 1;
+            document.getElementById('diceA').setAttribute('src', 'images/sai_' + n + '.gif');
+            document.getElementById('diceB').setAttribute('src', 'images/sai_' + m + '.gif');
+            let sum = n + m;
+            let resultElement = document.getElementById('result');
+
+            if (sum % 2 === 0) {
+                resultElement.textContent = '丁'; // Even sum
+            } else {
+                resultElement.textContent = '半'; // Odd sum
+            }
+        }
+    </script>
+</body>
+</html>

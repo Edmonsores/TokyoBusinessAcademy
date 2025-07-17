@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>String</title>
+</head>
+<body>
+<script>
+    //文字数をしらべる
+    var b = "こんにちは";
+    var mojisu = b.length;
+    alert("「こんにちは」の文字数は" + mojisu + "です");
+
+    //大文字小文字へんかん
+    var s = "JavaScript";
+    alert(s + "は全て大文字で" + s.toUpperCase() + "です");
+    alert(s + "は全て小文字で" + s.toLowerCase() + "です");
+
+    //文字をさがす
+    var a = "ようこそwebページへ";
+    var n = a.indexOf("そ");
+    alert("indexOfで調べる「" + "へ" + "」のうち「そ」は" + n + "番目です");
+
+    //文字ぬきだす
+    alert("charAt「" + a + "」のうち7番目は「" + a.charAt(7) + "」です");
+
+    //複数文字をぬきだす。－は0とみなす
+    alert("substring「" + a + "」の3-6文字は「" + a.substring(3, 7) + "」です");
+
+    //複数文字をぬきだす。第2引数をに指定する場合は後から数える
+    alert("slice「" + a + "」の3文字～最後の文字から4文字目まで「" + a.slice(3, -4) + "」です");
+
+    //指定した文字で分割し配列に入れる
+    bunkatu = a.split('そ');
+    alert("split「" + a + "」の「そ」の左の文字は「" + bunkatu[0] + "」で、右の文字は「" + bunkatu[1] + "」です");
+
+    //文字1を文字2におきかえる
+    alert("replace「" + a + "」の「へ」を「に」におきかえると「" + a.replace('へ', 'に') + "」です");
+</script>
+</body>
+</html>

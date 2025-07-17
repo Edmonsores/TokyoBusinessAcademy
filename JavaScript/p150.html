@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p150</title>
+    <style>
+        #num{
+            font-size: 24px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h3>日本で見られる金環日食</h3>
+    <p>2030年6月1日、北海道で金環日食を観測できます。<br>
+    今日は<span id="kyou"></span>日なので<br>
+    次の金環日食まで、あと<span id="num"></span>日です。</p>
+
+    <script>
+        let today = new Date();
+        let theDay = new Date(2030, 5, 1);
+        let ms = theDay.getTime() - today.getTime();
+        let days = ms / (24 * 60 * 60 * 1000);
+        days = Math.ceil(days);
+        document.getElementById("num").textContent = days;
+
+        let yy = today.getFullYear();
+        let mm = today.getUTCMonth();
+        let dd = today.getDate();
+        document.getElementById('kyou').textContent = yy + "年" + (mm+1) + "月" + dd;
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>日付、時刻の操作</title>
+</head>
+<body>
+    <h2>次の誕生日まで、あと何日？</h2>
+    <p>誕生日：
+        <select id="month"></select>月
+        <select id="date"></select>日です。
+    </p>
+    <button id="btn">日数計算</button>
+    <p id="result">ここに結果が表示されます。</p>
+
+    <script>
+        for (let i = 1; i <= 12; i++) {
+            let html = '<option value="' + (i - 1) + '">' + i + '</option>';
+            document.getElementById('month').insertAdjacentHTML('beforeend', html);
+        }
+
+        for (let i = 1; i <= 31; i++) {
+            let html = '<option value="' + i + '">' + i + '</option>';
+            document.getElementById('date').insertAdjacentHTML('beforeend', html);
+        }
+
+        document.getElementById('btn').addEventListener('click', showDays);
+
+        function showDays() {
+            let today = new Date();
+            let birthday = new Date();
+            let mm = document.getElementById('month').value;
+            let dd = document.getElementById('date').value;
+            birthday.setMonth(mm);
+            birthday.setDate(dd);
+
+            if (birthday < today) {
+                yy = birthday.getFullYear();
+                birthday.setFullYear(yy + 1);
+            }
+
+            let ms = birthday.getTime() - today.getTime();
+            let days = ms / (24 * 60 * 60 * 1000);
+            days = Math.ceil(days);
+            let text = '次の誕生日まで、あと' + days + '日です。';
+            document.getElementById('result').textContent = text;
+        }
+    </script>
+</body>
+</html>
