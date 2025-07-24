@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>p168</title>
+</head>
+<body>
+
+  <ul id="links">
+    <li><a href="https://www.google.com/">Google</a></li>
+    <li><a href="https://www.yahoo.co.jp/">Yahoo!</a></li>
+    <li><a href="https://www.bing.com/">Bing</a></li>
+  </ul>
+
+  <button id="toJR">JRのリンク集へ</button>
+  <button id="toSE">検索サイトのリンク集へ</button>
+
+  <script>
+    let jr = [];
+    jr[0] = {name: 'JR北海道', url: 'https://www.jrhokkaido.co.jp/'};
+    jr[1] = {name: 'JR東日本', url: 'https://www.jreast.co.jp/'};
+    jr[2] = {name: 'JR東海', url: 'https://www.jr-central.co.jp/'};
+    jr[3] = {name: 'JR西日本', url: 'https://www.westjr.co.jp/'};
+    jr[4] = {name: 'JR四国', url: 'https://www.jr-shikoku.co.jp/'};
+    jr[5] = {name: 'JR九州', url: 'https://www.jrkyushu.co.jp/'};
+    jr[6] = {name: 'JR貨物', url: 'https://www.jrfreight.co.jp/'};
+
+    let se = [];
+    se[0] = {name: 'Google', url: 'https://www.google.com/'};
+    se[1] = {name: 'Yahoo!', url: 'https://www.yahoo.co.jp/'};
+    se[2] = {name: 'Bing', url: 'https://www.bing.com/'};
+
+    let ul = document.getElementById('links');
+
+    document.getElementById('toJR').addEventListener('click', showJR);
+
+    function showJR() {
+      ul.innerHTML = '';
+      for (let i = 0; i < jr.length; i++) {
+        let html = '<li><a href="' + jr[i].url + '">' + jr[i].name + '</a></li>';
+        ul.insertAdjacentHTML('beforeend', html);
+      }
+    }
+
+    document.getElementById('toSE').addEventListener('click', showSE);
+
+    function showSE() {
+      ul.innerHTML = '';
+      for (let i = 0; i < se.length; i++) {
+        let html = '<li><a href="' + se[i].url + '">' + se[i].name + '</a></li>';
+        ul.insertAdjacentHTML('beforeend', html);
+      }
+    }
+  </script>
+
+</body>
+</html>

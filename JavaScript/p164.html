@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>p164</title>
+</head>
+<body>
+    <h2>店舗の情報</h2>
+    <div>
+      【店舗名】<span id="s_name"></span><br>
+      【営業時間】<span id="s_time"></span><br>
+      【席数】<span id="s_seat"></span>席<br>
+      【電話番号】<span id="s_tel"></span><br>
+      【定休日】<span id="s_closed"></span><br>
+    </div>
+    <script>
+      let nagoya = {
+        name: '名古屋店',
+        time: '11時30分～21時00分',
+        seat: 142
+      };
+
+      nagoya.tel = '052-123-4567';
+      nagoya.closed = '火曜日';
+  
+      document.getElementById('s_name').textContent = nagoya.name;
+      document.getElementById('s_time').textContent = nagoya.time;
+      document.getElementById('s_seat').textContent = nagoya.seat;
+      document.getElementById('s_tel').textContent = nagoya.tel;
+      document.getElementById('s_closed').textContent = nagoya.closed;
+    </script>
+  </body>
+</html>

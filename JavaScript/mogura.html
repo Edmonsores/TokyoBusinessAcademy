@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>mogura</title>
+  <style type="text/css">
+    div {
+      top: 300px;
+      left: 300px;
+      position: absolute;
+    }
+    img {
+      top: 100px;
+      left: 300px;
+      position: absolute;
+      width: 120px;
+    }
+  </style>
+</head>
+<body>
+
+
+<img id="obakeImg" src="images/OYAJI4.gif">
+
+<script>
+  let x, y, timer1, timer2, count;
+  count = 0; 
+
+  //Move the image to a new random location every 1 second
+  timer1 = setInterval(moveImg, 1000);
+
+  //After 5 seconds, check the result
+  timer2 = setTimeout(kekka, 5000);
+
+
+  document.getElementById('obakeImg').addEventListener('mousedown', clickChange);
+  document.getElementById('obakeImg').addEventListener('mouseup', outChange);
+
+  //Function to move the image randomly
+  function moveImg() {
+    x = Math.floor(Math.random() * 500); // random X
+    y = Math.floor(Math.random() * 300); // random Y
+    let img = document.getElementById('obakeImg');
+    img.style.left = x + "px";
+    img.style.top = y + "px";
+  }
+
+  //Change image and count++
+  function clickChange() {
+    document.getElementById('obakeImg').src = 'images/GL4.gif'; // Change image to hit version
+    count++;
+  }
+
+  //Return image to normal
+  function outChange() {
+    document.getElementById('obakeImg').src = 'images/OYAJI4.gif'; // Back to normal
+    if (count >= 3) {
+      kekka();
+    }
+  }
+
+  //Result check
+  function kekka() {
+    clearInterval(timer1); // Stop moving
+    clearTimeout(timer2);  // Stop timeout
+    if (count >= 3) {
+      alert("あなたの勝ち！");
+    } else {
+      alert("あなたの負け！");
+    }
+    location.reload(); // Restart game
+  }
+</script>
+
+</body>
+</html>
+

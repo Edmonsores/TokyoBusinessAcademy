@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>オブジェクト変数</title>
+</head>
+<body>
+  <h3>リンク集</h3>
+  <ul id="links">
+    <li><a href="https://www.google.com/">Google</a></li>
+    <li><a href="https://www.yahoo.co.jp/">Yahoo!</a></li>
+    <li><a href="https://www.bing.com/">Bing</a></li>
+  </ul>
+  <button id="toJR">JRのリンク集へ</button>
+  <script>
+    let jr = [];
+      jr[0] = {name: 'JR北海道', url: 'https://www.jrhokkaido.co.jp/'},
+      jr[1] = {name: 'JR東日本', url: 'https://www.jreast.co.jp/'},
+      jr[2] = {name: 'JR東海', url: 'https://jr-central.co.jp/'},
+      jr[3] = {name: 'JR西日本', url: 'https://www.westjr.co.jp/'},
+      jr[4] = {name: 'JR四国', url: 'https://www.jr-shikoku.co.jp/'},
+      jr[5] = {name: 'JR九州', url: 'https://www.jrkyushu.co.jp/'},
+      jr[6] = {name: 'JR貨物', url: 'https://www.jrfreight.co.jp/'}
+    
+    let ul = document.getElementById('links');
+
+    document.getElementById('toJR').addEventListener('click', showJR);
+    function showJR() {
+      ul.innerHTML = '';
+      for (let i = 0; i < jr.length; i++) {
+        let html = '<li><a href="' + jr[i].url + '">' + jr[i].name + '</a></li>';
+        ul.insertAdjacentHTML('beforeend', html);
+      }
+    }
+  </script>
+</body>
+</html>
