@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poke</title>
+</head>
+<body>
+    <canvas id="poke" width="400" height="400" style="border:1px solid black;">
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById('poke');
+        const ctx = canvas.getContext('2d');
+        const center = { x: canvas.width / 2, y: canvas.height / 2 };
+        const radius = 100;
+
+        // Draw the main circle outline
+        ctx.beginPath();
+        ctx.arc(center.x, center.y, radius, 0, Math.PI * 2);
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Draw the top red half
+        ctx.beginPath();
+        ctx.fillStyle = "red";
+        ctx.arc(center.x, center.y, radius, Math.PI, 0);
+        ctx.fill();
+        ctx.stroke();
+
+        // Draw the black dividing line
+        ctx.beginPath();
+        ctx.lineWidth = 2;
+        ctx.moveTo(center.x - radius, center.y);
+        ctx.lineTo(center.x + radius, center.y);
+        ctx.stroke();
+
+        // Draw the outer ring of the center button
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(center.x, center.y, 30, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Draw the inner white ring of the center button
+        ctx.beginPath();
+        ctx.fillStyle = "white";
+        ctx.arc(center.x, center.y, 20, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+    </script>
+</body>
+</html>
