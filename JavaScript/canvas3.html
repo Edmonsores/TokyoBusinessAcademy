@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="150" height="150"></canvas>
+    <script>
+        let canvas = document.getElementById('canvas');
+        if (canvas.getContext) {
+            let ctx = canvas.getContext('2d');
+            
+            ctx.beginPath();
+            ctx.fillStyle = 'rgba(192, 88, 77, 0.7)';
+            ctx.arc(70, 45, 35, 0, Math.PI * 2, false);
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>

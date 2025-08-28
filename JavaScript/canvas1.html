@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <TITLE></TITLE>
+    <style>
+        canvas { border: 1px solid black; }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="150" height="150"></canvas>
+    <script>
+        let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');//canvas用オブジェクト(場所)
+        ctx.strokeStyle="red";//描画色
+        ctx.strokeRect(25, 25, 100, 100);//四角の枠
+        ctx.fillStyle="red";//塗りつぶし色
+        ctx.fillRect(50, 50, 50, 50);//塗りつぶし
+    </script>
+</body>
+</html>

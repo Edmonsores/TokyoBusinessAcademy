@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        canvas {
+            border: solid #999999 1px;
+        }
+        #buttons {
+            background-color: #CCCCCC;
+            border: solid #999999 1px;
+            width: 620px;   /* match canvas width */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="main" width="640" height="480"></canvas>
+
+    <div id="buttons">
+        <input type="button" value="四角を描く" id="br">
+        <input type="button" value="線を引く" id="bl">
+        <input type="button" value="円を描く" id="bc">
+    </div>
+
+    <script>
+        document.getElementById("br").addEventListener('click', drawRect);
+        document.getElementById("bl").addEventListener('click', drawLine);
+        document.getElementById("bc").addEventListener('click', drawCircle);
+
+        // 四角形を描画
+        function drawRect() {
+            let canvas = document.getElementById("main");
+            let context = canvas.getContext("2d");
+
+            // Unfilled rectangle (red stroke)
+            context.beginPath();
+            context.strokeStyle = "red";
+            context.lineWidth = 2;
+            context.strokeRect(30, 30, 60, 120);
+
+            // Filled rectangle (blue fill)
+            context.fillStyle = "blue";
+            context.fillRect(120, 30, 60, 120);
+        }
+
+        // 線を描画（2本の斜め線）
+        function drawLine() {
+            let canvas = document.getElementById("main");
+            let context = canvas.getContext("2d");
+
+            context.beginPath();
+            context.strokeStyle = "red";
+            context.lineWidth = 2;
+
+            // First line
+            context.moveTo(220, 30);   
+            context.lineTo(320, 90);   
+
+            // Second line
+            context.moveTo(320, 90);   
+            context.lineTo(220, 150);  
+
+            context.stroke();
+        }
+
+        // 楕円を描画
+        function drawCircle() {
+            let canvas = document.getElementById("main");
+            let context = canvas.getContext("2d");
+
+            // Unfilled ellipse (red stroke)
+            context.beginPath();
+            context.strokeStyle = "red";
+            context.lineWidth = 2;
+            context.ellipse(100, 320, 40, 60, 0, 0, Math.PI * 2);
+            context.stroke();
+
+            // Filled ellipse (blue fill)
+            context.beginPath();
+            context.fillStyle = "blue";
+            context.ellipse(220, 320, 40, 60, 0, 0, Math.PI * 2);
+            context.fill();
+        }
+    </script>
+</body>
+</html>

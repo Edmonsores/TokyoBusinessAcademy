@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>grid</title>
+</head>
+<body>
+    <canvas id="grid" width="400" height="400" style="border:1px solid black;">
+    </canvas>
+    <script>
+        const canvas = document.getElementById('grid');
+        const ctx = canvas.getContext('2d');
+        const width = 40;
+        // for loop to draw horizontal lines
+        for (let i = 0; i <= 11; i++) {
+            ctx.beginPath();
+            ctx.moveTo(0, i * width);
+            ctx.lineTo(400, i * width);
+            ctx.stroke();
+        }
+        // for loop to draw vertical lines
+        for (let i = 0; i <= 11; i++) {
+            ctx.beginPath();
+            ctx.moveTo(i * width, 0);
+            ctx.lineTo(i * width, 400);
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>
