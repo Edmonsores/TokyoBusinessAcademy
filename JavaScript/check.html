@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>パスワード確認</title>
+</head>
+<body>
+    <form name="f1">
+        <h1>パスワード確認</h1>
+        <input type="password" name="pass">
+        <input type="button" value="確認" onclick="check1()">
+        
+        <h1>メールアドレス確認</h1>
+        <input type="text" name="mail">
+        <input type="button" value="確認" onclick="check2()">
+    </form>
+    <script>
+        //Password Check
+        function check1() {
+            let password = document.querySelector('input[name="pass"]').value;
+            if (password.length >= 8) {
+                alert("ok");
+            } else {
+                alert("パスワードは8文字以上で設定してください");
+            }
+        }
+        //Email Address Check
+        function check2() {
+            let email = document.querySelector('input[name="mail"]').value;
+            let atSign = email.indexOf("@");
+
+            if (atSign === -1) {
+                alert("メールアドレスが間違っています");
+            } else {
+                let username = email.substring(0, atSign);
+                let domain = email.substring(atSign + 1);
+                alert("ユーザー名は" + username + "です" + "\n" + "ドメイン名は" + domain + "です");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Slot Machine</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: sans-serif;
+        }
+        .slot-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .slot {
+            width: 70px;
+            height: 70px;
+            margin: 0 5px;
+            border: 3px solid green;
+        }
+        button {
+            margin: 5px;
+            padding: 5px 10px;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="slot-container">
+        <img src="images/dice1.png" class="slot" id="slot1">
+        <img src="images/dice1.png" class="slot" id="slot2">
+        <img src="images/dice1.png" class="slot" id="slot3">
+    </div>
+    <div>
+        <button id="stop1">stop</button>
+        <button id="stop2" disabled>stop</button>
+        <button id="stop3" disabled>stop</button>
+    </div>
+    <div class="result" id="result">あたりかはずれか</div>
+
+    <script>
+        let s1 = document.getElementById("slot1");
+        let s2 = document.getElementById("slot2");
+        let s3 = document.getElementById("slot3");
+        let btn1 = document.getElementById("stop1");
+        let btn2 = document.getElementById("stop2");
+        let btn3 = document.getElementById("stop3");
+        let result = document.getElementById("result");
+
+        let v1 = 1, v2 = 1, v3 = 1;
+
+        let t1 = setInterval(() => {
+            v1 = Math.floor(Math.random() * 6) + 1;
+            s1.setAttribute("src", "images/dice" + v1 + ".png");
+        }, 1000);
+
+        let t2 = setInterval(() => {
+            v2 = Math.floor(Math.random() * 6) + 1;
+            s2.setAttribute("src", "images/dice" + v2 + ".png");
+        }, 1000);
+
+        let t3 = setInterval(() => {
+            v3 = Math.floor(Math.random() * 6) + 1;
+            s3.setAttribute("src", "images/dice" + v3 + ".png");
+        }, 1000);
+
+        let stop1 = false, stop2 = false, stop3 = false;
+
+        btn1.addEventListener("click", () => {
+            clearInterval(t1);
+            btn1.disabled = true;
+            btn2.disabled = false;
+            stop1 = true;
+            check();
+        });
+
+        btn2.addEventListener("click", () => {
+            clearInterval(t2);
+            btn2.disabled = true;
+            btn3.disabled = false;
+            stop2 = true;
+            check();
+        });
+
+        btn3.addEventListener("click", () => {
+            clearInterval(t3);
+            btn3.disabled = true;
+            stop3 = true;
+            check();
+        });
+
+        function check() {
+            if (stop1 && stop2 && stop3) {
+                if (v1 === v2 && v2 === v3) {
+                    result.textContent = "あたり";
+                    result.style.color = "green";
+                } else {
+                    result.textContent = "はずれ";
+                    result.style.color = "red";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

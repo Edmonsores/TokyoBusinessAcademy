@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Shooting Star</title>
+  <style>
+    body {
+      background: black;
+    }
+    form {
+      top: 300px;
+      left: 350px;
+      position: absolute;
+    }
+    #star {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  </style>
+</head>
+<body>
+<img src="images/STAR6B.gif" id="star" alt="Shooting Star">
+<form>
+  <input type="button" value="流星" id="btn">
+</form>
+<script>
+  let star = document.getElementById('star');
+  let timer;
+  let x = 300; // Starting X coordinate
+  let y = 300; // Starting Y coordinate
+  let direction = 0; // 0: down-right, 1: down-left, 2: up-left, 3: up-right
+  let moveCount = 0;
+  const sideLength = 100; // Length of each side of the square
+
+  document.getElementById('btn').addEventListener('click', startShootingStar);
+
+  function startShootingStar() {
+    clearInterval(timer);
+    // Set initial position
+    star.style.left = x + "px";
+    star.style.top = y + "px";
+    // Start the movement timer
+    timer = setInterval(moveStar, 30);
+  }
+
+  function moveStar() {
+    if (direction === 0) { // Move down-right
+      x += 2;
+      y += 2;
+    } else if (direction === 1) { // Move down-left
+      x -= 2;
+      y += 2;
+    } else if (direction === 2) { // Move up-left
+      x -= 2;
+      y -= 2;
+    } else if (direction === 3) { // Move up-right
+      x += 2;
+      y -= 2;
+    }
+    // Update the star's position
+    star.style.left = x + "px";
+    star.style.top = y + "px";
+
+    moveCount += 1;
+
+    // Check if it's time to change direction
+    if (moveCount >= sideLength) {
+      direction = (direction + 1) % 4;
+      moveCount = 0;
+    }
+  }
+</script>
+</body>
+</html>
