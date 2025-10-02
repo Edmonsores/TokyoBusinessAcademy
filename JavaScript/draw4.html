@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>お絵かきソフト 1 </title>
+<style>
+canvas {
+border:solid #999999 1px;
+}
+.pallet button {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 2px;
+    border: 1px solid #333;
+}
+.red { background-color:#FF0000; }
+.yellow { background-color:#FFFF00; }
+.green { background-color:#00FF00; }
+.cyan { background-color:#00FFFF; }
+.blue { background-color:#0000FF; }
+.magenta { background-color:#FF00FF; }
+.white { background-color:#FFFFFF; }
+.black { background-color:#000000; }
+</style>
+</head>
+<body onload="changeColor(); changeWidth();">
+<canvas id="main" width="640" height="480">
+</canvas>
+<div class="pallet">
+<canvas id="canvasColor" width="20" height="20"></canvas>
+ペンの色: [<span id="textColor">R:0,G:0,B:0,A:1.0</span>]<br>
+R:<input type="range" id="penR" value="0" min="0" max="255"><br>
+G:<input type="range" id="penG" value="0" min="0" max="255"><br>
+B:<input type="range" id="penB" value="0" min="0" max="255"><br>
+A:<input type="range" id="penA" value="1" min="0" max="1" step="0.1">
+<hr>
+基本色:
+<button type="button" class="red" value="255,0,0"></button>
+<button type="button" class="yellow" value="255,255,0"></button>
+<button type="button" class="green" value="0,255,0"></button>
+<button type="button" class="cyan" value="0,255,255"></button>
+<button type="button" class="blue" value="0,0,255"></button>
+<button type="button" class="magenta" value="255,0,255"></button>
+<button type="button" class="white" value="255,255,255"></button>
+<button type="button" class="black" value="0,0,0"></button>
+<hr>
+<canvas id="canvasWidth" width="20" height="20"></canvas>
+ペンの太さ:
+<input type="range" id="penW" value="10" min="1" max="20">
+</div>
+<script>
+// マウスが押されたとき
+document.getElementById('main').addEventListener('mousedown', function(){
+startDraw(event);
+});
+//マウスが動いた時
+document.getElementById('main').addEventListener('mousemove', function(){
+draw(event);
+});
+//マウスが離れた時
+document.getElementById('main').addEventListener('mouseup', function(){
+endDraw(event);
+});
+//赤ペン色のレンジに変更があったら
+document.getElementById('penR').addEventListener('change', function(){
+changeColor();
+});
+//緑ベン色のレンジに変更があったら
+document.getElementById('penG').addEventListener('change', function(){
+changeColor();
+});
+//青ペン色のレンジに変更があったら
+document.getElementById('penB').addEventListener('change', function(){
+changeColor();
+});
+//透明のレンジに変更があったら
+document.getElementById('penA').addEventListener('change', function(){
+changeColor();
+});
+
+//ペンの太さを変えるスライダーに変化があったら EventListener
+document.getElementById('penW').addEventListener('change', function(){
+    changeWidth();
+});
+
+// マウスボタンが押されているかどうかを調べる変数を宣言
+let mouseDown = false;
+let penX = 0;// ペンの設定ヨコ位置
+let penY = 0;// ペンの設定タテ位置
+let penColor = "rgba(0,0,0,1)"; // ペンの色
+let penWidth = 10;// ペンの太さ
+let canvasWidth = document.getElementById("canvasWidth"); // ペンの太さ用キャンパス
+let contextWidth = canvasWidth.getContext("2d"); // ペンの太さ用コンテキスト
+
+function startDraw(event) { // 描画の開始
+// マウスボタンが押された
+mouseDown = true;
+// ペンの座標をセット
+penX = event.clientX;
+penY = event.clientY;
+}
+// 描画
+function draw(event) {
+if (mouseDown) { // マウスボタンが押されていれば描画
+// キャンバスの取得
+let canvas = document.getElementById("main");
+let context = canvas.getContext("2d");
+context.strokeStyle = penColor; // ペンのセット
+context.lineWidth = penWidth;
+context.lineCap = "round";
+let x = event.clientX; // マウスカーソルの座標を取得
+let y = event.clientY;
+context.beginPath(); // パスの開始
+context.moveTo (penX, penY);// 座標の移動
+// コンテキストの取得
+context.lineTo(x,y); // 線の描画
+context.stroke(); // パスの描画
+penX = x; // ペン座標の切り替え
+penY = y;
+}
+}
+function endDraw(event) {// 描画の終了
+mouseDown = false; // マウスボタンが離れた
+}
+
+//ペンの太さを変える関数
+function changeWidth() { //ペンの太さを変更する関数
+    //スライダーの値を取得して、ペンの太さ用変数に代入
+    penWidth = document.getElementById("penW").value;
+
+    //ペンの太さを塗りつぶしの円で表示
+    //いったんクリア
+    contextWidth.clearRect(0, 0, 20, 20);
+
+    //書き始める
+    contextWidth.beginPath();
+
+    //太さの見本を円で表示しましょう。ペンの太さの半分を半径に指定しましょう
+    let radius = penWidth / 2;
+    let centerX = 10;
+    let centerY = 10;
+    
+    //円を描く
+    contextWidth.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+
+    // 円のスタイル設定
+    contextWidth.fillStyle = "black";
+    
+    ///塗りつぶす
+    contextWidth.fill();
+}
+
+function changeColor() { // スライダーの値を取得
+let penR = document.getElementById("penR").value;
+let penG = document.getElementById("penG").value;
+let penB = document.getElementById("penB").value;
+let penA = document.getElementById("penA").value;
+// ペンの色をセット
+penColor = "rgba("+penR+", "+penG+", "+penB+", "+penA+")";
+let canvasColor = document.getElementById("canvasColor"); // ペンの色用
+// コンテキストの取得
+let contextColor = canvasColor.getContext("2d");
+// ペンの色を塗りつぶしの四角形で表示
+contextColor.clearRect(0,0,20,20);
+contextColor.fillStyle = penColor;
+contextColor.fillRect(0,0,20,20);
+// ペンの色をテキストで表示
+let textColor = document.getElementById("textColor");
+textColor.innerHTML = "R:"+penR+", G: "+penG+", B: "+penB+", A: "+penA;
+}
+
+function setColor(r, g, b) {
+    // スライダーに値をセット
+    document.getElementById("penR").value = r;
+    document.getElementById("penG").value = g;
+    document.getElementById("penB").value = b;
+    // ペンの色を変更
+    changeColor();
+}
+
+// カラーボタンのイベントリスナー設定
+let colbutton = document.querySelectorAll('.pallet button');
+for (let i = 0; i < colbutton.length; i++) {
+    let btn = colbutton[i];
+    let cvalue = btn.value;
+    let list = cvalue.split(',');
+    let r = list[0];
+    let g = list[1];
+    let b = list[2];
+
+    btn.addEventListener('click', function () {
+        setColor(r, g, b);
+    });
+}
+</script>
+</body>
+</html>

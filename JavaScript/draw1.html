@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>お絵かきソフト 1</title>
+<style>
+canvas {
+border:solid #999999 1px;
+}
+</style>
+</head>
+<body>
+<canvas id="main" width="640" height="480">
+</canvas>
+<script>
+// Declare a variable to check if the mouse button is pressed
+let mouseDown = false; // Declare a variable to check if the mouse button is pressed
+let penX = 0;// Pen setting: horizontal position
+let penY = 0;// Pen setting: vertical position
+let penColor = "rgba(0,0,0,1)";// Pen color
+let penWidth = 10;// Pen width
+
+// When the mouse is pressed down
+document.getElementById('main').addEventListener('mousedown', function(event) {
+  startDraw(event);
+});
+
+// When the mouse is moved
+document.getElementById('main').addEventListener('mousemove', function(event) {
+  draw(event);
+});
+
+// When the mouse is released
+document.getElementById('main').addEventListener('mouseup', function(event) {
+  endDraw(event);
+});
+
+function startDraw(event) {// Start drawing
+  // Mouse button is pressed
+  mouseDown = true;
+  // Set the pen coordinates
+  penX = event.clientX;
+  penY = event.clientY;
+  // Get the context
+}
+
+function draw(event) { // Drawing
+  if (mouseDown) { // Draw if the mouse button is pressed
+    // Get the canvas
+    let canvas = document.getElementById("main");
+    let context = canvas.getContext("2d");
+    context.strokeStyle = penColor; // Set the pen color (stroke style)
+    context.lineWidth = penWidth;
+    context.lineCap = "round";
+    let x = event.clientX; // Get the mouse cursor coordinates
+    let y = event.clientY;
+    context.beginPath(); // Start a new path
+    context.moveTo(penX, penY); // Move to coordinates
+    context.lineTo(x,y);// Draw a line
+    context.stroke();// Stroke the path (draw the line)
+    
+    penX = x;// Switch (Update) the pen's X coordinate
+    penY = y; // Switch (Update) the pen's Y coordinate
+  }
+}
+
+function endDraw(event) {// End drawing
+  mouseDown = false; // Mouse button is released
+}
+</script>
+</body>
+</html>
