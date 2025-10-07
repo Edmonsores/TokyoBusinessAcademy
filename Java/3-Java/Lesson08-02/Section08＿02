@@ -1,0 +1,103 @@
+import java.util.Scanner;
+
+// Abstract class
+abstract class School {
+    public abstract void show();
+    public abstract void ratioMethod();
+}
+
+// Department class
+class Department extends School {
+    private String departmentName;
+    private int lastYear;
+    private int thisYear;
+
+    public Department(String departmentName, int lastYear, int thisYear) {
+        this.departmentName = departmentName;
+        this.lastYear = lastYear;
+        this.thisYear = thisYear;
+    }
+
+    public int getThisYear() {
+        return thisYear;
+    }
+
+    public void show() {
+        System.out.println("＜" + departmentName + "＞");
+        System.out.println("前年度入学者数：" + lastYear);
+        System.out.println("今年度入学者数：" + thisYear);
+    }
+
+    public void ratioMethod() {
+        double rate = (double) thisYear / lastYear * 100;
+        System.out.println(departmentName + "の入学者数の前年比は " + String.format("%.1f", rate) + "% です。");
+    }
+}
+
+// Employment rate class
+class PublicRelations extends School {
+    private String departmentName;
+    private int enrollment;      // This year's enrollment
+    private int jobOffers;       // This year's job offers
+
+    public PublicRelations(String departmentName, int enrollment, int jobOffers) {
+        this.departmentName = departmentName;
+        this.enrollment = enrollment;
+        this.jobOffers = jobOffers;
+    }
+
+    public void show() {
+        System.out.println("＜" + departmentName + "＞");
+        System.out.println("今年度の入学者数：" + enrollment);
+        System.out.println("今年度の就職内定者数：" + jobOffers);
+    }
+
+    public void ratioMethod() {
+        double rate = (double) jobOffers / enrollment * 100;
+        System.out.println(departmentName + "の就職率は " + String.format("%.1f", rate) + "% です。");
+    }
+}
+
+// Main class
+public class Section08＿02 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] names = {"情報処理", "WEBクリエイター", "経理", "グローバルビジネス"};
+        int[] lastYearEnrollment = {20, 10, 60, 80};
+
+        Department[] departments = new Department[names.length];
+        PublicRelations[] prs = new PublicRelations[names.length];
+
+
+        for (int i = 0; i < names.length; i++) {
+            System.out.println("\n➞ " + names[i]);
+
+            System.out.print("今年度の入学者数を入力：");
+            int thisYear = sc.nextInt();
+
+            System.out.print("今年度の就職内定者数を入力：");
+            int thisYearJobOffers = sc.nextInt();
+
+            departments[i] = new Department(names[i], lastYearEnrollment[i], thisYear);
+            prs[i] = new PublicRelations(names[i], thisYear, thisYearJobOffers);
+        }
+
+        System.out.println("\n====================");
+        System.out.println("《入学者数 前年比》");
+        for (int i = 0; i < departments.length; i++) {
+            departments[i].show();
+            departments[i].ratioMethod();
+            System.out.println();
+        }
+
+        System.out.println("《就職率》");
+        for (int i = 0; i < prs.length; i++) {
+            prs[i].show();
+            prs[i].ratioMethod();
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}
