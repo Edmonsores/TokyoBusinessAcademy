@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Memo2</title>
+    <style>
+        #memoArea {
+            background-color: #EEEEEE;
+            border: solid 1px black;
+            width: 620px;
+            height: 480px;
+            padding: 10px;
+            position: relative;
+        }
+        .memo { 
+            text-decoration: none;
+            color: black;
+            position: absolute;
+            border: solid 1px #333333;
+            width: 180px;
+            height: 40px;
+            padding: 10px;
+        }
+        .yellow {background-color: #FFFFCC;}
+        .red {background-color:#FFCCCC;}
+        .green {background-color: #CCFFCC;}
+        .form {
+            background-color: #CCCCCC;
+            border: solid 1px black;
+            width: 620px;
+            padding: 10px;
+        }
+        #trashArea {
+            background-color: #6699CC;
+            color: white;
+            border: solid 1px black;
+            width: 620px;
+            height: 100px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form class="form">
+        <input type="text" id="memoText" size="50" placeholder="メモを入力してください">
+        <input type="radio" name="memoColor" id="memoY" checked>黄色
+        <input type="radio" name="memoColor" id="memoR">赤色
+        <input type="radio" name="memoColor" id="memoG">緑色
+        <input type="button" id="haruBtn" value="付箋紙を貼る">
+    </form>
+
+    <div id="memoArea">
+        <!-- <a href="#" id="memo1" class="memo yellow" draggable="true">メモ1</a> -->
+    </div>
+
+    <div id="trashArea">ゴミ箱</div>
+
+    <script>
+        // --- Variables for drag offset ---
+        let offsetX = 0;
+        let offsetY = 0;
+
+        // When drag starts
+        function dragMemo(event) {
+            // Store the dragged element’s ID
+            event.dataTransfer.setData("text", event.target.id);
+            let memoElement = document.getElementById(event.target.id);
+            // Save the difference between the mouse position and memo’s top-left corner
+            offsetX = event.clientX - memoElement.offsetLeft;
+            offsetY = event.clientY - memoElement.offsetTop;
+        }
+
+        // While dragging over the memo area
+        function dragOverMemo(event) {
+            event.preventDefault(); // Allow dropping
+        }
+
+        // When dropped inside the memo area
+        function dropMemo(event) {
+            event.preventDefault();
+            // Get the ID of the dragged memo
+            let id = event.dataTransfer.getData("text");
+            let memoElement = document.getElementById(id);
+            // Move the memo to the new position
+            memoElement.style.left = event.clientX - offsetX + "px";
+            memoElement.style. top = event.clientY - offsetY + "px";
+        }
+
+        // Event listeners for drag and drop in the memo area
+        document.getElementById('memoArea').addEventListener('dragover', dragOverMemo);
+        document.getElementById('memoArea').addEventListener('drop', dropMemo);
+
+        // --- Global counter for memo IDs ---
+        let memoCurrentId = 1;
+
+        // --- Function to add a new memo ---
+        function addMemo() {
+            // Get the text from the input box
+            let memoText = document.getElementById('memoText').value;
+
+            // Get the selected color (default: yellow)
+            let memoColor = "yellow";
+            if (document.getElementById('memoR').checked) memoColor = "red";
+            if (document.getElementById('memoG').checked) memoColor = "green";
+
+            // Create a new <a> element (the memo)
+            let memoElement = document.createElement("a");
+
+            // Set memo properties
+            memoElement.href = "#";
+            memoElement.id = "memo" + memoCurrentId;
+            memoElement.className = "memo " + memoColor;
+            memoElement.draggable = true;
+            memoElement.ondragstart = dragMemo;
+            memoElement.innerHTML = memoText;
+
+            // Get the memo area (the parent element)
+            let memoArea = document.getElementById("memoArea");
+
+            // Add the memo to the memo area
+            memoArea.appendChild(memoElement);
+
+            // Increase memo ID counter
+            memoCurrentId++;
+
+            // Clear the input field
+            document.getElementById('memoText').value = "";
+        }
+
+        // When the button is clicked, add a new memo
+        document.getElementById('haruBtn').addEventListener('click', addMemo);
+    </script>
+</body>
+</html>

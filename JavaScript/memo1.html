@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Memo</title>
+    <style>
+        #memoArea {
+            background-color: #EEEEEE; /* Light gray background */
+            border: solid 1px black;
+            width: 620px;
+            height: 480px;
+            padding: 10px;
+        }
+        .memo { 
+            text-decoration: none;
+            color: black;
+            position: absolute;
+            left: 50px;
+            top: 80px;
+            border: solid 1px #333333;
+            width: 180px;
+            height: 40px;
+            padding: 10px;
+        }
+        .yellow {background-color: #FFFFCC;}
+        .red {background-color:#FFCCCC;}
+        .green {background-color: #CCFFCC;}
+        .form {
+            background-color: #CCCCCC; /* Gray background */
+            border: solid 1px black;
+            width: 620px;
+            padding: 10px;
+        }
+        #trashArea {
+            background-color: #6699CC; /* Blue background */
+            color: white;
+            border: solid 1px black;
+            width: 620px;
+            height: 100px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form class="form">
+        <input type="text" id="memoText" size="50"
+            placeholder="メモを入力してください"> <input type="radio" name="memoColor" id="memoY" checked>黄色 <input type="radio" name="memoColor" id="memoR">赤色 <input type="radio" name="memoColor" id="memoG">緑色 <input type="button" id="haruBtn" value="付箋紙を貼る"> </form>
+    <div id="memoArea">
+        <a href="#" id="memo1" class="memo yellow" draggable="true">メモ1</a> </div>
+    <div id="trashArea">ゴミ箱</div> <script>
+        // Start dragging the memo
+        document.getElementById('memo1').addEventListener('dragstart', function() {
+            dragMemo(event);
+        });
+        // While dragging over the memo area
+        document.getElementById('memoArea').addEventListener('dragover', function() {
+            dragOverMemo(event);
+        });
+        // Drop on the memo area
+        document.getElementById('memoArea').addEventListener('drop', function() {
+            dropMemo(event);
+        });
+        
+        // Globally declare variables for the difference between drag coordinates and sticky note's top-left corner
+        let offsetX = 0;
+        let offsetY = 0;
+
+        function dragMemo (event) { // When drag starts
+            // Store the ID of the sticky note
+            event.dataTransfer.setData("text", event.target.id);
+            // Get the element being dragged
+            let memoElement = document.getElementById(event.target.id);
+            // Set the difference between the drag coordinate (event.clientX) and the sticky note's top-left corner (memoElement.offsetLeft)
+            offsetX = event.clientX - memoElement.offsetLeft;
+            offsetY = event.clientY - memoElement.offsetTop;
+        }
+
+        function dropMemo (event) { // When dropped
+            // Retrieve the stored ID
+            let id = event.dataTransfer.getData("text");
+            // Get the sticky note element
+            let memoElement = document.getElementById(id);
+            // The new top-left coordinate is the drop coordinate (event.clientX) minus the offset (offsetX)
+            memoElement.style.left = event.clientX - offsetX + "px";
+            memoElement.style.top = event.clientY - offsetY + "px";
+        }
+
+        function dragOverMemo (event) { // While dragging
+            event.preventDefault(); // Prevent the default drag behavior
+        }
+    </script>
+</body>
+</html>
